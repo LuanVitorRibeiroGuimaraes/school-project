@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "students.h": "c",
+        "validations.h": "c",
+        "stdio.h": "c",
+        "validators.h": "c"
+    }
+}
