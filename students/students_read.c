@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include "students.h"
+#include "students/students.h"
 
+//testar todos os métodos
 
 void listStudents()
 {
@@ -10,17 +10,24 @@ void listStudents()
     }
 }
 
-void listStudentsById()
+void listStudentsById(int id)
+{
+    for (int i = 0; i < studentQnt; i++)
+    {
+        if (students[i].studentId == id)
+        {
+            printf("matricula: ,\n nome: %s, sexo: %c", students[i].studentId, students[i].name, students[i].sex);
+            break;
+        }
+    }
+}
+
+void listStudentsByLetter()
 {
     //
 }
 
-void listStudentsByName()
-{
-    //
-}
-
-void listStudentsBySex()
+void listStudentsBySex(char sex)
 {
     //
 }
