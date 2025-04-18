@@ -12,11 +12,11 @@
 typedef struct
 {
     int studentId; 
-    char name[100];
+    char* name;
     char sex;
-    char birthDate[10];
-    char cpf[14];
-    bool active = true;
+    char* birthDate;
+    char* cpf;
+    bool active;
 }Students;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
@@ -25,13 +25,12 @@ extern Students students[];
 
 void studentMenu(); //precisa testar
 void createStudent(); //precisa testar
-void updateStudent(int id); //precisa testar
-void createStudent(); //precisa testar
+void updateStudent(); //precisa testar
 void listStudents(); //precisa testar
-void listStudentsById(int id); //precisa testar
+void listStudentsById(); //precisa testar
 void listStudentsByLetter(); //precisa testar
-void listStudentsBySex(char sex); //precisa testar
+void listStudentsBySex(); //precisa testar
 void listStudentsBybirthDate(); //precisa testar
-void deleteStudentById(int id); //precisa testar
+void deleteStudentById(); //precisa testar
 
 #endif

@@ -1,54 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include "validators.h"
 
-// strtok - quebra uma string em tokens, dado um delimitador específico (use /).
-// strtol - converte uma string para um inteiro longo.
-// strstr - localiza a primeira ocorrência de uma substring específica em uma string (use //).
-// isdigit - verifica se o caractere passado como argumento é um dígito.
-// atof() Conversão de string em float
-// atoi() Conversão de string to int
-// atol() Conversão de string to long
-// itoa() Conversão de int to string
-// ltoa() Conversão de long to string
 
-void validatebirthDate(char birthDate[10])
+void formatCpf(char cpf[])
 {
-    //verificando o tamanho do array (terá q ser 9 no input por conta do '\0')
-    if (sizeof(birthDate) < 8)
-    {
-        printf("Tamanho de data incorreto, formato correto: (##/##/##)\n");
-    }
+    char formatted[SIZE_CPF];
 
-    //removendo os '/' da data
-    for (int i = 0; birthDate[i] != '\0'; i++)
-    {
-        if (birthDate[i] == '/')
-        {
-            birthDate[i] = "";
-        }
-    }
+    sprintf(formatted, "%.3s.%.3s.%.3s-%.2s", cpf, cpf+3, cpf+6, cpf+9);
 
-    //printando a data sem a /
-    for (int i = 0; birthDate[i] != '\0'; i++)
-    {
-        printf("%c", birthDate[i]);
-    }
-    printf("\n");
-
-    int number = atoi(birthDate);
-    printf("%d\n", number);
+    printf("%s", formatted);
 }
 
-
-int main() 
+void validateCpf()
 {
+    char CPF[SIZE_CPF];
 
-void validatebirthDate(char birthDate[10]);
+    printf("Digite o CPF: ");
+    fgets(CPF, sizeof(CPF), stdin);
+    CPF[strcspn(CPF, "\n")] = '\0';
+    
+    
+    if (strlen(CPF) < 11 || strlen(CPF) > 11)
+        do
+        {
+            printf("CPF precisa de 11 caracteres.\n");
+            printf("Digite o CPF: ");
+            fgets(CPF, sizeof(CPF), stdin);
+            CPF[strcspn(CPF, "\n")] = '\0';
+        }
+        while (strlen(CPF) < 11 || strlen(CPF) > 11);
 
-  char string[] = "12/01/24";
+    formatCpf(CPF);
+}
 
-  validatebirthDate(string);
+int main ()
+{
+    void validateCpf();
 
+    validateCpf();
+
+    return 0;
 }

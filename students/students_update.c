@@ -1,26 +1,32 @@
-#include "students/students.h"
+#include "students.h"
 
 
-void updateStudent(int id)
+void updateStudent()
 {
+    int id;
+    int find;
     char name[100];
-    int birthDate;
+    char date[100];
+
+    printf("Digite a matricula do aluno que deseja atualizar: ");
+    scanf("%d", &id);
 
     for (int i = 0; i < studentQnt; i++)
     {
-        if (students[i].studentId == id)
+        if (students[i].studentId == id && students[i].active)
         {
-            printf("Digite o nome do aluno: ");
+            printf("Digite o nome: ");
             fgets(name, sizeof(name), stdin);
             name[strcspn(name, "\n")] = '\0';
 
-            printf("Digite a data de nascimento do aluno: ");
-            scanf("%d", &birthDate);
+            getchar();
+
+            printf("Digite a data de nascimento: ");
+            fgets(date, sizeof(date), stdin);
+            date[strcspn(date, "\n")] = '\0';
 
             strcpy(students[i].name, name);
-            students[i].birthDate = birthDate;
+            strcpy(students[i].birthDate, date);
         }
-        printf("Usuario atualizado com sucesso!\n");
-        break;
     }
 }
