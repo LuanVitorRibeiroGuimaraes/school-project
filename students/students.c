@@ -1,22 +1,20 @@
-#include <stdio.h>
-#include <string.h>
+#include "../students.h"
+// #include "../validators/validators.h"
 
-#include "students.h"
-#include "../validators/validators.h"
+//precisa testar
 
-#define SIZE_STUDENTS 100
-    
 int studentQnt = 0;
 Students students[SIZE_STUDENTS];
 
-void createStudent()
+void createStudent() //adicionar verificar se campo está vazio ou não
 {
 
+    bool active = true;
     int studentId; 
     char name[100];
     char sex;
-    int birthDate;
-    long cpf;
+    char birthDate[10];
+    char cpf[14];
 
     if (studentQnt == SIZE_STUDENTS)
     {
@@ -28,9 +26,9 @@ void createStudent()
 
     getchar();
 
-    printf("Digite o nome do usuario: ");
+    printf("Digite o nome do aluno: ");
     fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0';
+    name[strcspn(name, "\n")] = '\0'; //trocar o \n do final pelo \0
 
 
     printf("Digite o sexo do aluno: ");
@@ -39,25 +37,26 @@ void createStudent()
     getchar();
 
     printf("Digite a data de aiversario: ");
-    scanf("%d", &birthDate);
+    fgets(birthDate, sizeof(birthDate), stdin);
+    birthDate[strcspn(birthDate, "\n")] = ' \0';
 
-    getchar();
+    // getchar();
 
-    printf("Digite o CPF do aluno: ");
-    scanf("%ld", &cpf);
-    validateCpf(cpf);
-
-    //em C, strings são arrays de caracteres, e você não pode atribuir arrays diretamente assim
-    //é preciso copiar o conteúdo de uma string para outra
+    // printf("Digite o CPF do aluno: ");
+    // fgets(cpf, sizeof(cpf), stdin);
+    // name[strcspn(name, "\n")] = '\0'; //trocar o \n do final pelo \0
+    // //validateCpf(cpf);
 
 
     students[studentQnt].studentId = studentId;
     strcpy(students[studentQnt].name, name);
     students[studentQnt].sex = sex;
-    students[studentQnt].birthDate = birthDate;
-    students[studentQnt].cpf = cpf;
+    strcpy(students[studentQnt].birthDate, birthDate);
+    students[studentQnt].active = active;
+    // strcpy(students[studentQnt].cpf, cpf);
 
     studentQnt+= 1;
 
     printf("Aluno cadastrado com sucesso!\n");
 }
+

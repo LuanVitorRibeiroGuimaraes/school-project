@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "validators/validators.h"
-#include "students/students.h"
+#include "../validators.h"
+#include "../students.h"
 
 int main()
 {
