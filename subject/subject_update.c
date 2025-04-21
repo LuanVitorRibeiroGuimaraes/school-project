@@ -4,7 +4,7 @@
 
 void updateSubject()
 {
-	int option = 0, updatePos, findId, finded = 0, i;
+	int option = 0, updatePos, findId, findTeacherId, finded = 0, i;
 	
 	do
 	{
@@ -35,6 +35,43 @@ void updateSubject()
 	);
 	scanf("%d", &option);
 	
-	if
-	if
+	do
+	{
+		switch (option)
+		{
+			case 1:
+				printf("Digite o novo nome da disciplina: ");
+				fgets(subjects[updatePos].name, sizeof(subjects[updatePos]), stdin);
+				break;
+			
+			case 2:
+				printf("Digite o novo codigo da disciplina: ");
+				scanf("%d", &subjects[updatePos].subjectId);
+				break;
+			
+			case 3:
+				printf("Digite o novo semestre da disciplina: ");
+				scanf("%d", &subjects[updatePos].subjectSemester);
+
+			case 4:
+				do{
+					printf("Digite a matricula do novo professor que vai ministrar a disciplina: ");
+					scanf("%d", &findTeacherId);
+					
+					for(i = 0; i < teacherQnt; i++) {
+					if(teachers[i].teacherId == findTeacherId) {
+						subjects[updatePos].subjectTeacher = teachers[i];
+						finded = 1;
+						break;
+					}
+					
+					if(finded = 0) printf("Professor nao encontrado. Tente novamente.\n");
+				}while(finded = 0);
+				break;
+			
+			default:
+				printf("Opcao invalida. Tente novamente,");
+				break;
+		}	
+	}while(option != 0);
 }

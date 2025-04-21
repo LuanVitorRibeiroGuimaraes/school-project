@@ -1,6 +1,7 @@
 #ifndef SUBJECTS_SCHOOL_H
 #define SUBJECTS_SCHOOL_H
 #include "../teachers/teachers.h"
+#include "../students/students.h"
 
 //definindo o struct Subjects
 typedef struct
@@ -9,10 +10,11 @@ typedef struct
     int subjectId; 
     int subjectSemester;
     Teacher subjectTeacher;
+    int subjectEnrolledQnt;
 }Subject;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
-extern int subjectQnt; 
+extern int subjectQnt;
 extern Subject subjects[];
 
 void createSubject();
