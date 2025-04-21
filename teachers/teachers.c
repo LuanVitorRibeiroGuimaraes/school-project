@@ -8,7 +8,6 @@
 teacherQnt = 0;
 Teacher teachers[SIZE_PROFESSORES]; 
 
-#pragma region CRIAR PROFESSOR
 void createTeacher(){
     int teacherId; 
     char name[100];
@@ -17,13 +16,20 @@ void createTeacher(){
     long cpf;
 
     if(teacherQnt == SIZE_PROFESSORES){
-        printf("\nNao eh possivel cadastrar mais alunos!");
+        printf("\nNao eh possivel cadastrar mais professores!");
     }
 
-    printf("Digite a matrícula do aluno: ");
-    scanf("%d", &teacherId);
+    char buffer[100];
 
-    getchar();
+    printf("Digite a matricula do professor: ");
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%d", &teacherId);
+    for(int i = 0; i < teacherQnt; i++){
+        if(teachers[i].teacherId == teacherId){
+            printf("\nJa Existe um Professor Com Essa Matricula!\n");
+            return;
+        }
+    }
 
     printf("Digite o nome do professor: ");
     fgets(name, sizeof(name), stdin);
@@ -31,20 +37,21 @@ void createTeacher(){
 
 
     printf("Digite o sexo do professor (F ou M): ");
-    scanf("%c", &sex);
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%c", &sex);
 
-    getchar();
 
-    printf("Digite a data de aiversario: ");
-    scanf("%d", &birthDate);
+    printf("Digite a data de aiversario (dd/mm/aaaa): ");
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%d", &birthDate);
 
-    getchar();
 
     printf("Digite o CPF do professor: ");
-    scanf("%ld", &cpf);
-    validateCpf(cpf);
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%ld", &cpf);
+    //validateCpf(cpf);
 
-    teachers[teacherQnt].studentId = teacherId;
+    teachers[teacherQnt].teacherId = teacherId;
     strcpy(teachers[teacherQnt].name, name);
     teachers[teacherQnt].sex = sex;
     teachers[teacherQnt].birthDate = birthDate;
@@ -53,6 +60,6 @@ void createTeacher(){
     teacherQnt ++;
 
     printf("Professor cadastrado com sucesso!\n");
+
 }
-#pragma endregion
 

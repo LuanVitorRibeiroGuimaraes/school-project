@@ -2,9 +2,11 @@
 
 #include "validators/validators.h"
 #include "students/students.h"
+#include "teachers/teachers.h"
 
 int main()
 {
-    createStudent();
-    listStudents();
+    teachersMenu();
+    
+    return 0;
 }

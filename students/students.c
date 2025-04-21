@@ -18,6 +18,7 @@ void createStudent()
     int birthDate;
     long cpf;
 
+
     if (studentQnt == SIZE_STUDENTS)
     {
         printf("Nao e possuivel cadastrar mais alunos!");
