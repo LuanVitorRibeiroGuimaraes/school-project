@@ -35,10 +35,13 @@ void listTeachers()
     printf("\t\tLISTA DE PROFESSORES\n");
     for (int i = 0; i < teacherQnt; i++)
     {
-        printf("\n-------------------------------------------------");
-        printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-               teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-        printf("\n-------------------------------------------------");
+        if (teachers[i].teacherId != 0)
+        {
+            printf("\n-------------------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
+            printf("\n-------------------------------------------------");
+        }
     }
 }
 
@@ -62,4 +65,3 @@ void listTeachersById(int pId)
         }
     }
 }
-

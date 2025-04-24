@@ -15,9 +15,12 @@ void excluirProfessor(){
     for(int i = 0; i < teacherQnt; i++){
 
         if(teachers[i].teacherId == lId){
-            // fazer ainda
+            for(int j = i; j < teacherQnt - 1; j++){
+                teachers[j] = teachers[j+1];
+            }
+            teacherQnt--;
             printf("\nProfessor Excluido com Sucesso!"); 
-            break;
+            return;
         }
     }
     printf("\nMatricula Incorreta, Por Favor, Digite Novamente.\n");
