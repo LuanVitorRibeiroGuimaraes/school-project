@@ -17,7 +17,6 @@ extern Teacher teachers[];
 
 void createTeacher();
 void updateTeacher();
-void createTeacher();
 void listTeachers();
 void listTeachersById();
 void listStudentsByName();
