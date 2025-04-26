@@ -1,4 +1,5 @@
-#include <stdio.h>>
+#include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
 #include "teachers.h"
@@ -64,4 +65,23 @@ void listTeachersById(int pId)
             printf("\n--------------------------------------------");
         }
     }
+}
+
+void listTeachersByName(char pName[]){
+    int lCont = 0;
+    for(int i = 0; i < teacherQnt; i++){
+        if(strcmp(teachers[i].name, pName) == 0){
+            printf("\n-------------------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
+            printf("\n-------------------------------------------------");
+            lCont++;
+        }
+    }
+    if(lCont == 0){
+        printf("\n--------------------------------------------");
+        printf("\nNome nao encontrado."); 
+        printf("\n--------------------------------------------");
+    }
+
 }

@@ -3,6 +3,7 @@
         "students.h": "c",
         "validations.h": "c",
         "stdio.h": "c",
-        "validators.h": "c"
+        "validators.h": "c",
+        "teachers.h": "c"
     }
 }

@@ -6,7 +6,6 @@ void teachersMenu()
 {
     while (1)
     {
-
         printf("\n----------------- MENU PROFESSORES ----------------\n");
         printf("1 - Adicionar Professor.\n");
         printf("2 - Atualizar Dados do Professor.\n");
@@ -55,30 +54,34 @@ void teachersMenu()
                 break;
             }
         case 4:
+            if (isEmpityTeacher() == true)
+            {
+                break;
+            }
             printf("Digite a matricula do professor que deseja buscar: \n");
             printf(">> ");
             int lId;
             fgets(buffer, sizeof(buffer), stdin);
             sscanf(buffer, "%d", &lId);
+
+            listTeachersById(lId);
+            break;
+
+        case 5:
             if (isEmpityTeacher() == true)
             {
                 break;
             }
-            else
-            {
-                listTeachersById(lId);
-                break;
-            }
+            printf("Digite o nome do professor que deseja buscar: \n");
+            printf(">> ");
+            char lName[100];
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%s", &lName);
 
-            /*case 5:
-                printf("Digite o nome do professor que desejar buscar: \n");
-                printf(">> ");
-                char lNomeProfessor[100];
-                gets(lNomeProfessor);
-                listStudentsByName(lNomeProfessor);
-                break;
+            listTeachersByName(lName);
+            break;
 
-            case 6:
+            /*case 6:
                 printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
                 printf(">> ");
                 char lSexo;

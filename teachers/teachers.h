@@ -19,7 +19,7 @@ void createTeacher(); // feito
 void updateTeacher(); // feito
 void listTeachers(); // feito
 void listTeachersById(); // feito
-void listStudentsByName();
+void listTeachersByName();
 void listTeachersBySex();
 void listTeachersBybirthDate();
 void excluirProfessor();
