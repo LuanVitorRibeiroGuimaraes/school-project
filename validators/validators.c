@@ -32,11 +32,18 @@ void validateCpf()
     formatCpf(CPF);
 }
 
-int main ()
+int validateInt()
 {
-    void validateCpf();
+    int value;
+    int scanfResult;
+	int c;
 
-    validateCpf();
+    scanfResult = scanf("%d", &value);
+    if (scanfResult != 1)
+    {
+        while ((c = getchar()) != '\n' && c != EOF) { } //Limpar o buffer 
+        return -1; // Retorna -1 para indicar entrada inválida
+    }
 
-    return 0;
+    return value;
 }

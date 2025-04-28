@@ -1,10 +1,14 @@
 #include <stdio.h>
 
-#include "../validators.h"
+#include "../validators/validators.h"
+
 #include "../students.h"
 
 int main()
 {
-    createStudent();
-    listStudents();
+    // setlocale(LC_ALL, "pt_BR.UTF-8");
+
+    teachersMenu();
+    
+    return 0;
 }

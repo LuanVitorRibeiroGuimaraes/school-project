@@ -1,5 +1,6 @@
 #ifndef TEACHERS_H
 #define TEACHERS_H
+#include <stdbool.h>
 
 //definindo o struct Teachers
 typedef struct
@@ -13,18 +14,18 @@ typedef struct
     int assignedSubjectsQnt;
 }Teacher;
 
-//extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
 extern int teacherQnt; 
 extern Teacher teachers[];
 
-void createTeacher();
-void updateTeacher();
-void listTeachers();
-void listTeachersById();
-void listStudentsByName();
-void listTeachersBySex();
-void listTeachersBybirthDate();
-
-
+void createTeacher(); // feito
+void updateTeacher(); // feito
+void listTeachers(); // feito
+void listTeachersById(); // feito
+void listTeachersByName(); // feito 
+void listTeachersBySex(); // feito
+void listTeachersBybirthDate(); // feito FALTA VALIDAR 
+void excluirProfessor(); // feito
+void teachersMenu(); // feito
+bool isEmpityTeacher(); // feito
 
 #endif
