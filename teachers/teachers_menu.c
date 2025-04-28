@@ -18,17 +18,19 @@ void teachersMenu()
         printf("9 - Voltar Para o Menu Principal\n");
         printf("----------------------------------------------------\n");
 
-        int lResposta;
+        int resposta;
         char buffer[100];
 
         printf(">> ");
         fgets(buffer, sizeof(buffer), stdin);
-        sscanf(buffer, "%d", &lResposta);
+        sscanf(buffer, "%d", &resposta);
 
-        switch (lResposta)
+        switch (resposta)
         {
         default:
             printf("Selecione uma das opcoes validas!\n");
+            break;
+
         case 1:
             createTeacher();
             break;
@@ -37,22 +39,17 @@ void teachersMenu()
             {
                 break;
             }
-            else
-            {
-                updateTeacher();
-                break;
-            }
+            updateTeacher();
             break;
+
         case 3:
             if (isEmpityTeacher() == true)
             {
                 break;
             }
-            else
-            {
-                listTeachers();
-                break;
-            }
+            listTeachers();
+            break;
+
         case 4:
             if (isEmpityTeacher() == true)
             {
@@ -81,33 +78,41 @@ void teachersMenu()
             listTeachersByName(lName);
             break;
 
-            /*case 6:
-                printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
-                printf(">> ");
-                char lSexo;
-                scanf("%c", &lSexo);
-                listTeachersBySex(lSexo);
+        case 6:
+            if (isEmpityTeacher() == true)
+            {
                 break;
+            }
+            printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
+            printf(">> ");
+            char lSexo;
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%c", &lSexo);
 
-            case 7:
-                printf("Digite a data de aniversario (dd/mm/aaaa) do professor que deseja buscar: \n");
-                printf(">> ");
-                int lDataAniversario;
-                scanf("%d", &lDataAniversario);
-                listTeachersBybirthDate(lDataAniversario);
-                break;*/
+            listTeachersBySex(lSexo);
+            break;
+
+        case 7:
+            if (isEmpityTeacher() == true)
+            {
+                break;
+            }
+            printf("Digite a data de aniversario (dd/mm/aaaa) do professor que deseja buscar: \n");
+            printf(">> ");
+            int lDataAniversario;
+            fgets(buffer, sizeof(buffer), stdin);
+            scanf(buffer, "%d", &lDataAniversario);
+            listTeachersBybirthDate(lDataAniversario);
+            break;
 
         case 8:
             if (isEmpityTeacher() == true)
             {
                 break;
             }
-            else
-            {
-                excluirProfessor();
-                break;
-            }
+            excluirProfessor();
             break;
+
         case 9:
             return;
         }

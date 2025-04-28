@@ -31,8 +31,14 @@ bool isEmpityTeacher()
     return false;
 }
 
+int compararNomes(const void *a, const void *b) {
+    return strcmp(((Teacher *)a)->name, ((Teacher *)b)->name);
+}
+
 void listTeachers()
 {
+    qsort(teachers, teacherQnt, sizeof(Teacher), compararNomes);
+
     printf("\t\tLISTA DE PROFESSORES\n");
     for (int i = 0; i < teacherQnt; i++)
     {
@@ -69,6 +75,9 @@ void listTeachersById(int pId)
 
 void listTeachersByName(char pName[]){
     int lCont = 0;
+
+    qsort(teachers, teacherQnt, sizeof(Teacher), compararNomes);
+
     for(int i = 0; i < teacherQnt; i++){
         if(strcmp(teachers[i].name, pName) == 0){
             printf("\n-------------------------------------------------");
@@ -84,4 +93,43 @@ void listTeachersByName(char pName[]){
         printf("\n--------------------------------------------");
     }
 
+}
+
+void listTeachersBySex(char pSex[]){
+    int lCont = 0;
+    for(int i = 0; i < teacherQnt; i++){
+        if(strcmp(teachers[i].sex, pSex) == 0){
+            printf("\n-------------------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
+            printf("\n-------------------------------------------------");
+            lCont++;
+        }
+    }
+    if(lCont == 0){
+        printf("\n--------------------------------------------");
+        printf("\nNenhum professor com esse sexo."); 
+        printf("\n--------------------------------------------");
+    }
+
+}
+
+
+void listTeachersBybirthDate(int pDataAniversario){
+    int lCont = 0;
+
+    for(int i = 0; i < teacherQnt; i++){
+        if(strcmp(teachers[i].birthDate, pDataAniversario) == 0){
+            printf("\n-------------------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
+            printf("\n-------------------------------------------------");
+            lCont++;
+        }
+    }
+    if(lCont == 0){
+        printf("\n--------------------------------------------");
+        printf("\nNenhum professor com essa data de aniversario."); 
+        printf("\n--------------------------------------------");
+    }
 }

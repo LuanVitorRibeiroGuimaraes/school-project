@@ -19,10 +19,10 @@ void createTeacher(); // feito
 void updateTeacher(); // feito
 void listTeachers(); // feito
 void listTeachersById(); // feito
-void listTeachersByName();
-void listTeachersBySex();
-void listTeachersBybirthDate();
-void excluirProfessor();
+void listTeachersByName(); // feito 
+void listTeachersBySex(); // feito
+void listTeachersBybirthDate(); // feito FALTA VALIDAR 
+void excluirProfessor(); // feito
 void teachersMenu(); // feito
 bool isEmpityTeacher(); // feito
 
