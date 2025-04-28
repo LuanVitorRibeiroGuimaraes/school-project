@@ -26,13 +26,17 @@ void updateSubject()
 	
 	printf("Atualizando a Disciplina: %s\n\n", subjects[updatePos].name);
 	printf(
+		"Selecione qual campo deseja alterar: \n"
+		"0 - Voltar\n"
 		"1 - Nome da Disciplina\n"
 		"2 - Codigo da Disciplina\n"
 		"3 - Semestre da Disciplina\n"
 		"4 - Professor que vai ministrar a disciplina\n"
-		"0 - Voltar\n"
-		"Selecione qual campo deseja alterar: "
+		"\n>> "
+		
 	);
+	option = validateInt();
+	
 	scanf("%d", &option);
 	
 	do

@@ -19,6 +19,8 @@ typedef struct
     char birthDate[10];
     char cpf[14];
     bool active;
+    int enrolledSubjects[MAX_SUBJECTS];
+    int enrolledSubjectsQnt;
 }Students;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar

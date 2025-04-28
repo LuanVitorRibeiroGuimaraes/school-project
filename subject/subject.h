@@ -10,7 +10,6 @@ typedef struct
     char name[40];
     int subjectId; 
     int subjectSemester;
-    Teacher subjectTeacher;
     int subjectEnrolledQnt;
 }Subject;
 

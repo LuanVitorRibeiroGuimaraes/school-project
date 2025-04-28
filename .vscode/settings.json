@@ -6,6 +6,11 @@
         "validators.h": "c",
         "stdlib.h": "c",
         "string.h": "c",
-        "teachers.h": "c"
+        "teachers.h": "c",
+        "stdbool.h": "c",
+        "chrono": "c",
+        "text_encoding": "c",
+        "typeindex": "c",
+        "typeinfo": "c"
     }
 }

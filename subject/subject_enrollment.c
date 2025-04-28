@@ -10,6 +10,12 @@ void enrollStudent()
         printf("Digite o codigo da disciplina: ");
         findSubjectId = validateInt();
 
+        if (findStudentId == -1)
+        {
+            printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente\n");
+            continue;
+        }
+
         for(i = 0; i < subjectQnt; i++)
         {
             if(subjects[i].subjectId == findSubjectId)
@@ -17,8 +23,14 @@ void enrollStudent()
                 printf("Matricular aluno na Disciplina: %s\n", subjects[i].name);
                 do
                 {
-                    printf("Digite a matricula do aluno para registrar na disciplina: ");
+                    printf("Digite a matricula do estudante para registrar na disciplina: ");
                     findStudentId = validateInt();
+
+                    if (findStudentId == -1)
+                    {
+                        printf("Matricula do estudante precisa ser um numero inteiro. Tente novamente\n");
+                        continue;
+                    }
 
                     for(j = 0; j < studentQnt; j++)
                     {
@@ -32,7 +44,7 @@ void enrollStudent()
                         }
                     }
 
-                    if(!findedStudent) printf("Matricula de aluno nao encontrado. Tente novamente.");
+                    if(!findedStudent) printf("Matricula de aluno nao encontrado. Tente novamente.\n");
                 } while (!findedStudent);
                 
                 findedSubject = 1;
@@ -55,6 +67,12 @@ void unenrollStudent()
         printf("Digite a matricula do estudante para remover de uma disciplina: ");
         findStudentId = validateInt();
 
+        if (findStudentId == -1)
+        {
+            printf("Matricula do estudante precisa ser um numero inteiro. Tente novamente\n");
+            continue;
+        }
+
         for (i = 0; i < studentQnt; i++)
         {
             if (students[i].studentId == findStudentId)
@@ -67,7 +85,7 @@ void unenrollStudent()
         {
             if(students[studentPosition].enrolledSubjectsQnt == 0)
             {
-                printf("Matriculas nao encontradas para esse estudante. Tente novamente");
+                printf("Matriculas nao encontradas para esse estudante. Tente novamente\n");
                 findedStudent = 0;
                 continue;
             }
@@ -91,6 +109,12 @@ void unenrollStudent()
                     {
                         printf("Digite o codigo da disciplina para desmatricular: ");
                         findSubjectId = validateInt();
+
+                        if (findStudentId == -1)
+                        {
+                            printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente\n");
+                            continue;
+                        }
 
                         for (i = 0; i < students[studentPosition].enrolledSubjectsQnt; i++)
                         {
