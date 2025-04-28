@@ -2,6 +2,7 @@
 #define SUBJECTS_SCHOOL_H
 #include "../teachers/teachers.h"
 #include "../students/students.h"
+#include "../validators/validators.h"
 
 //definindo o struct Subjects
 typedef struct

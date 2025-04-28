@@ -1,22 +1,6 @@
 #include "subject.h"
 #include <stdio.h>
 
-int validatorInt()
-{
-    int value;
-    int scanfResult;
-	int c;
-
-    scanfResult = scanf("%d", &value);
-    if (scanfResult != 1)
-    {
-        while ((c = getchar()) != '\n' && c != EOF) { } //Limpar o buffer 
-        return -1; // Retorna -1 para indicar entrada inválida
-    }
-
-    return value;
-}
-
 void subjectMainMenu()
 {
 	int menuOption;
@@ -33,8 +17,7 @@ void subjectMainMenu()
 			"-------------------------------------------------\n"
 			"\n>> "
 		);
-	
-		menuOption = validatorInt();
+		menuOption = validateInt();
 	
 		switch (menuOption)
 		{
@@ -79,7 +62,7 @@ void subjectRegisterMenu()
 			"-----------------------------------------------------\n"
 			"\n>> "
 		);
-		menuOption = validatorInt();
+		menuOption = validateInt();
 	
 		switch (menuOption)
 		{
@@ -123,7 +106,7 @@ void subjectEnrollmentMenu()
 			"------------------------------------------------------\n"
 			"\n>> "
 		);
-		menuOption = validatorInt();
+		menuOption = validateInt();
 	
 		switch (menuOption)
 		{
@@ -165,7 +148,7 @@ void subjectListingMenu()
 			"------------------------------------------------------\n"
 			"\n>> "
 		);
-		menuOption = validatorInt();
+		menuOption = validateInt();
 	
 		switch (menuOption)
 		{

@@ -9,6 +9,8 @@ typedef struct
     char sex;
     int birthDate;
     long cpf;
+    int assignedSubjects;
+    int assignedSubjectsQnt;
 }Teacher;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar

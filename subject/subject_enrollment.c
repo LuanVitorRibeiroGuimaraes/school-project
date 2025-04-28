@@ -8,7 +8,7 @@ void enrollStudent()
     do
     {
         printf("Digite o codigo da disciplina: ");
-        scanf("%d", &findSubjectId);
+        findSubjectId = validateInt();
 
         for(i = 0; i < subjectQnt; i++)
         {
@@ -18,28 +18,103 @@ void enrollStudent()
                 do
                 {
                     printf("Digite a matricula do aluno para registrar na disciplina: ");
-                    scanf("%d", &findStudentId);
+                    findStudentId = validateInt();
 
                     for(j = 0; j < studentQnt; j++)
                     {
                         if(students[j].studentId == findStudentId)
                         {
-                            //Falta o comando para atribuir o codigo da disciplina ao estudante.
+                            students[j].enrolledSubjects[students[i].enrolledSubjectsQnt];
+                            students[j].enrolledSubjectsQnt++;
                             subjects[i].subjectEnrolledQnt++;
-                            printf("Aluno matriculado com sucesso!");                           
+                            findedStudent = 1;
+                            printf("Aluno matriculado com sucesso!");                         
                         }
                     }
+
+                    if(!findedStudent) printf("Matricula de aluno nao encontrado. Tente novamente.");
                 } while (!findedStudent);
                 
-
+                findedSubject = 1;
             }
         }
 
         if(!findedSubject) printf("Disciplina nao encontrada. Tente novamente.\n");
-    } while (!findedSubject);   
+    } while (!findedSubject);
+    
+    return;
 }
 
 void unenrollStudent()
 {
+    int findSubjectId, findStudentId, studentPosition, subjectPosition;
+    int i, j, findedSubject = 0, findedStudent = 0;
 
+    do
+    {
+        printf("Digite a matricula do estudante para remover de uma disciplina: ");
+        findStudentId = validateInt();
+
+        for (i = 0; i < studentQnt; i++)
+        {
+            if (students[i].studentId == findStudentId)
+                findedStudent = 1;
+                studentPosition = i;
+                break;
+        }
+
+        if(findedStudent)
+        {
+            if(students[studentPosition].enrolledSubjectsQnt == 0)
+            {
+                printf("Matriculas nao encontradas para esse estudante. Tente novamente");
+                findedStudent = 0;
+                continue;
+            }
+
+            else
+                {
+                    printf("Estudante matriculado nas seguintes disciplinas:\n");
+                    for (i = 0; i < students[studentPosition].enrolledSubjectsQnt; i++)
+                    {
+                        for(j = 0; j < subjectQnt; j++)
+                        {
+                            if(students[studentPosition].enrolledSubjects[i] = subjects[j].subjectId)
+                            {
+                                printf("%d - %s\n", students[studentPosition].enrolledSubjects[i], subjects[j].name);
+                            } 
+                        }
+                        
+                    }
+                    
+                    do
+                    {
+                        printf("Digite o codigo da disciplina para desmatricular: ");
+                        findSubjectId = validateInt();
+
+                        for (i = 0; i < students[studentPosition].enrolledSubjectsQnt; i++)
+                        {
+                            if (students[studentPosition].enrolledSubjects[i] == findSubjectId)
+                                findedSubject = 1;
+                                subjectPosition = i;
+                                break;
+                        }
+                        
+                        if(findedSubject)
+                        {
+                            for(i = subjectPosition; i < students[studentPosition].enrolledSubjectsQnt - 1; i++)
+                            {
+                                students[studentPosition].enrolledSubjects[i] = students[studentPosition].enrolledSubjects[i+1];
+                                students[studentPosition].enrolledSubjectsQnt--;       
+                            }
+                        }
+
+                        else printf("Codigo incorreto. Tente novamente.\n");
+                    } while (!findedSubject);
+                }
+        }
+
+        if(!findedStudent) printf("Aluno nao encontrado. Tente novamente.\n");
+        
+    } while (!findedStudent);
 }
