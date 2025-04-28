@@ -4,6 +4,7 @@
 #define SIZE_STUDENTS 100
 #define MAX_SUBJECTS 8
 
+#include "../subject/subject.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,13 +14,11 @@
 typedef struct
 {
     int studentId; 
-    char* name;
+    char name[50];
     char sex;
-    char* birthDate;
-    char* cpf;
+    char birthDate[10];
+    char cpf[14];
     bool active;
-    int enrolledSubjects[MAX_SUBJECTS];
-    int enrolledSubjectsQnt;
 }Students;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
@@ -29,7 +28,7 @@ extern Students students[];
 void studentMenu(); //precisa testar
 void createStudent(); //precisa testar
 void updateStudent(); //precisa testar
-void listStudents(); //precisa testar
+void listStudents(); //working
 void listStudentsById(); //precisa testar
 void listStudentsByLetter(); //precisa testar
 void listStudentsBySex(); //precisa testar

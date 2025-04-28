@@ -65,4 +65,4 @@ void createTeacher(){
 
 #include <string.h>
 
-#include "../validators/validators.h"
+>>>>>>>>> Temporary merge branch 2
