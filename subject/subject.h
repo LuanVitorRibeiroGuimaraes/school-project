@@ -25,5 +25,6 @@ void unenrollStudent(); //Excluir aluno de uma disciplina
 void listAllSubjects(); //dados das disciplinas sem os alunos
 void listSubject(); // dados da disciplina e os alunos matriculados
 void listSubjectsWithMoreThan40Students(); // Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
+void listStudentEnrolledInLessThan3Subjects();
 
 #endif

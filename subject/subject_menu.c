@@ -1,55 +1,199 @@
 #include "subject.h"
 #include <stdio.h>
 
-void subjectMenu()
+int validatorInt()
 {
-	int option;
+    int value;
+    int scanfResult;
+	int c;
+
+    scanfResult = scanf("%d", &value);
+    if (scanfResult != 1)
+    {
+        while ((c = getchar()) != '\n' && c != EOF) { } //Limpar o buffer 
+        return -1; // Retorna -1 para indicar entrada inválida
+    }
+
+    return value;
+}
+
+void subjectMainMenu()
+{
+	int menuOption;
 	
-	printf(
-		"MENU DISCIPLINA\n\n"
-		"0 - Voltar\n"
-		"1 - Cadastrar Disciplina\n"
-		"2 - Matricular aluno em uma Disciplina\n"
-		"3 - Excluir aluno de uma Disciplina\n"
-		"4 - Listar todas as Disciplinas\n"
-		"5 - Listar dados de uma Disciplina\n"
-		"6 - Listar Disciplinas que extrapolam 40 vagas\n\n"
-		"Selecione uma opcao: "
-	);
-    scanf("%d", &option);
-	
-	do
+	while(1)
 	{
-		switch (option)
+		printf(
+			"\n---------------- MENU DISCIPLINA ----------------\n"
+			"Selecione uma opcao abaixo:\n"
+			"0 - Voltar\n"
+			"1 - Cadastrar Disciplina\n"
+			"2 - Matricular ou Desmatricular estudante em uma Disciplina\n"
+			"3 - Listar Disciplinas\n"
+			"-------------------------------------------------\n"
+			"\n>> "
+		);
+	
+		menuOption = validatorInt();
+	
+		switch (menuOption)
 		{
+			case 0:
+				return;
+	
+			case 1:
+				subjectRegisterMenu();
+				break;
+	
+			case 2:
+				subjectEnrollmentMenu();
+				break;
+	
+			case 3:
+				subjectListingMenu();
+				break;
+			
+			default:
+				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 3 sao aceitos.\n");
+				printf("\nPressione Enter para continuar..."); 
+				getchar();
+				getchar();
+		}
+	}
+
+}
+
+void subjectRegisterMenu()
+{
+	int menuOption;
+
+	while(1)
+	{
+		printf(
+			"\n---------------- CADASTRO DISCIPLINA ----------------\n"
+			"Selecione uma opcao abaixo:\n"
+			"0 - Voltar\n"
+			"1 - Incluir Disciplina\n"
+			"2 - Excluir Disciplina\n"
+			"3 - Atualizar Disciplinas\n"
+			"-----------------------------------------------------\n"
+			"\n>> "
+		);
+		menuOption = validatorInt();
+	
+		switch (menuOption)
+		{
+			case 0:
+				return;
+			
 			case 1:
 				createSubject();
 				break;
-
+			
 			case 2:
+				deleteSubject();
+				break;
+	
+			case 3:
+				updateSubject();
+				break;
+	
+			default:
+				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 3 sao aceitos.\n");
+				printf("\nPressione Enter para continuar..."); 
+				getchar();
+				getchar();
+		}	
+	}
+
+}
+
+void subjectEnrollmentMenu()
+{
+	int menuOption;
+
+	while(1)
+	{
+		printf(
+			"\n---------------- MATRICULA DISCIPLINA ----------------\n"
+			"Selecione uma opcao abaixo:\n"
+			"0 - Voltar\n"
+			"1 - Matricular Estudante\n"
+			"2 - Desmatricular Estudante\n"
+			"------------------------------------------------------\n"
+			"\n>> "
+		);
+		menuOption = validatorInt();
+	
+		switch (menuOption)
+		{
+			case 0:
+				return;
+			
+			case 1:
 				enrollStudent();
 				break;
-
-			case 3:
+			
+			case 2:
 				unenrollStudent();
 				break;
+	
+			default:
+				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 2 sao aceitos.\n");
+				printf("\nPressione Enter para continuar..."); 
+				getchar();
+				getchar();
+		}
+	}
+	
+}
 
-			case 4:
+void subjectListingMenu()
+{
+	int menuOption;
+
+	while(1)
+	{
+		printf(
+			"\n---------------- LISTAGENS DISCIPLINA ----------------\n"
+			"Selecione uma opcao abaixo:\n"
+			"0 - Voltar\n"
+			"1 - Listar Disciplinas (dados da disciplina sem os alunos)\n"
+			"2 - Listar uma disciplina (dados da disciplina e os alunos matriculados)\n"
+			"3 - Lista de alunos matriculados em menos de 3 disciplinas\n"
+			"4 - Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.\n"
+			"------------------------------------------------------\n"
+			"\n>> "
+		);
+		menuOption = validatorInt();
+	
+		switch (menuOption)
+		{
+			case 0:
+				return;
+			
+			case 1:
 				listAllSubjects();
 				break;
-
-			case 5:
+			
+			case 2:
 				listSubject();
 				break;
-
-			case 6:
+	
+			case 3:
+				listStudentEnrolledInLessThan3Subjects();
+				break;
+	
+			case 4:
 				listSubjectsWithMoreThan40Students();
 				break;
-
+	
 			default:
-				printf("Opcao invalida. Tente novamente.");
-				break;
+				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 4 sao aceitos.\n");
+				printf("\nPressione Enter para continuar..."); 
+				getchar();
+				getchar();
 		}
-	}while(option != 0);
-
+	}
+	
 }
