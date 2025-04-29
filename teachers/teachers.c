@@ -24,49 +24,63 @@ void createTeacher()
         printf("\n-------------------------------------------");
         printf("\nNao eh possivel cadastrar mais professores!");
         printf("\n-------------------------------------------");
-        return; 
+        return;
     }
 
     char buffer[100];
 
-    printf("Digite a matricula do professor: ");
-    fgets(buffer, sizeof(buffer), stdin);
-
-    //* VALIDA SE O USUARIO DIGITOU UM NUMERO!
-    if (sscanf(buffer, "%d", &teacherId) != 1 || teacherId <= 0)
+    while (1)
     {
-        printf("\n----------------------------------------");
-        printf("\nDigite Somente Numeros Maiores Que Zero!");
-        printf("\n----------------------------------------");
-        return;
+        printf("\n >>Digite a matricula do professor: ");
+        fgets(buffer, sizeof(buffer), stdin);
+
+        //* VALIDA SE O USUARIO DIGITOU UM NUMERO!
+        if (sscanf(buffer, "%d", &teacherId) != 1 || teacherId <= 0)
+        {
+            printf("\n----------------------------------------");
+            printf("\nDigite Somente Numeros Maiores Que Zero!");
+            printf("\n----------------------------------------");
+            continue;
+        }
+        if (validateTeacherId(teacherId) == 1)
+        {
+            continue;
+        }
+        break;
     }
-    if (validateTeacherId(teacherId) == 1)
+
+    while (1)
     {
-        return;
+        printf("\n >>Digite o nome do professor: ");
+        fgets(name, sizeof(name), stdin);
+        name[strcspn(name, "\n")] = '\0';
+        if (validateTeachersName(name) == 1)
+        {
+            continue;
+            ;
+        }
+        break;
     }
 
-    printf("Digite o nome do professor: ");
-    fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0';
-    if (validateTeachersName(name) == 1){
-        return;
-    }
-
-    printf("Digite o sexo do professor (F ou M): ");
-    fgets(buffer, sizeof(buffer), stdin);
-    sscanf(buffer, "%c", &sex);
-    sex = toupper(sex);
-    if (validateTeachersSex(sex) == 1)
+    while (1)
     {
-        return;
+        printf("\n >>Digite o sexo do professor (F ou M): ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%c", &sex);
+        sex = toupper(sex);
+        if (validateTeachersSex(sex) == 1)
+        {
+            continue;
+        }
+        break;
     }
 
-    printf("Digite a data de aiversario (DDMMAAAA): ");
+    printf("\n >>Digite a data de aiversario (DDMMAAAA): ");
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%d", &birthDate);
     //! VALIDAR DATA DE ANIVERSARIO
 
-    printf("Digite o CPF do professor: ");
+    printf("\n >>Digite o CPF do professor: ");
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%ld", &cpf);
     //! validateCpf(cpf);
@@ -83,5 +97,5 @@ void createTeacher()
     printf("\n---------------------------------");
     printf("\nProfessor cadastrado com sucesso!");
     printf("\n---------------------------------");
-    return; 
+    return;
 }

@@ -10,7 +10,7 @@ void updateTeacher()
 {
 
     listTeachers();
-    printf("\n Digite a matricula do professor no qual voce quer alterar os dados:");
+    printf("\nDigite a matricula do professor no qual voce quer alterar os dados:");
     printf("\n>> ");
     int lId;
     fgets(buffer, sizeof(buffer), stdin);
@@ -25,33 +25,41 @@ void updateTeacher()
             int lBirthDate;
             long lCpf;
 
-            printf("Digite o novo nome do professor: ");
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%s", &lName);
-            if (validateTeachersName(lName) == 1)
+            while (1)
             {
-                return;
+                printf("\n >>Digite o novo nome do professor: ");
+                fgets(buffer, sizeof(buffer), stdin);
+                sscanf(buffer, "%s", &lName);
+                if (validateTeachersName(lName) == 1)
+                {
+                    continue;
+                }
+                strcpy(teachers[i].name, lName);
+                break;
             }
-            strcpy(teachers[i].name, lName);
 
-            printf("Digite o novo sexo do professor: ");
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%c", &lSex);
-            lSex = toupper(lSex);
-            if (validateTeachersSex(lSex) == 1)
+            while (1)
             {
-                return;
+                printf("\n >>Digite o novo sexo do professor: ");
+                fgets(buffer, sizeof(buffer), stdin);
+                sscanf(buffer, "%c", &lSex);
+                lSex = toupper(lSex);
+                if (validateTeachersSex(lSex) == 1)
+                {
+                    continue;
+                }
+                teachers[i].sex = lSex;
+                break;
             }
-            teachers[i].sex = lSex;
 
-            printf("Digite a nova data de aniversario do professor: ");
+            printf("\n >>Digite a nova data de aniversario (DDMMAAAA) do professor: ");
             fgets(buffer, sizeof(buffer), stdin);
             sscanf(buffer, "%d", &lBirthDate);
             //! VALIDAR DATA DE ANIVERSARIO
 
             teachers[i].birthDate = lBirthDate;
 
-            printf("Digite o novo CPF do professor: ");
+            printf("\n >>Digite o novo CPF do professor: ");
             fgets(buffer, sizeof(buffer), stdin);
             sscanf(buffer, "%ld", &lCpf);
             //! validateCpf(cpf);
