@@ -6,5 +6,6 @@
 int main()
 {
     
+    teachersMenu(); 
     return 0;
 }
