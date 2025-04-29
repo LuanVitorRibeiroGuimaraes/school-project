@@ -1,5 +1,4 @@
 #include "subject.h"
-#include <stdio.h>
 
 void subjectMainMenu()
 {
@@ -82,7 +81,7 @@ void subjectRegisterMenu()
 				break;
 	
 			default:
-				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 3 sao aceitos.\n");
+				printf("Opcao precisa ser um valor inteiro entre 0 e 3. Tente novamente.\n");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
 				getchar();
@@ -164,11 +163,11 @@ void subjectListingMenu()
 				break;
 	
 			case 3:
-				listStudentEnrolledInLessThan3Subjects();
+				listUnderEnrolledStudents();
 				break;
 	
 			case 4:
-				listSubjectsWithMoreThan40Students();
+				listLargeSubjects();
 				break;
 	
 			default:

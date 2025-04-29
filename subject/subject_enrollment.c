@@ -131,6 +131,8 @@ void unenrollStudent()
                                 students[studentPosition].enrolledSubjects[i] = students[studentPosition].enrolledSubjects[i+1];
                                 students[studentPosition].enrolledSubjectsQnt--;       
                             }
+
+                            printf("Aluno desmatriculado com sucesso.");
                         }
 
                         else printf("Codigo incorreto. Tente novamente.\n");
@@ -141,4 +143,6 @@ void unenrollStudent()
         if(!findedStudent) printf("Aluno nao encontrado. Tente novamente.\n");
         
     } while (!findedStudent);
+
+    return;
 }

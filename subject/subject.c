@@ -1,17 +1,16 @@
-#include <stdio.h>
 #include "subject.h"
-#include <string.h>
+
 
 #define SIZE_SUBJECTS 40
 int subjectQnt = 0;
-Subject subjects[SIZE_SUBJECTS]; //mudar esses valores depois
+Subject subjects[SIZE_SUBJECTS];
 
 void createSubject()
 {
 	char name[100];
     int subjectId; 
     int subjectSemester;
-	int i, findId, registerTeacher, findedTeacher = 0, findedSubjectId = 1;
+	int i, findId, registerTeacher, findedTeacher = 0, notFindedSubjectId = 0;
     
 	if (subjectQnt == SIZE_SUBJECTS)
 	{
@@ -25,22 +24,34 @@ void createSubject()
 	do
 	{
 		printf("Digite o codigo da disciplina: ");
-		scanf("%d", &subjectId);
+		subjectId = validateInt();
+
+		if (subjectId == -1)
+		{
+			printf("Codigo so pode ser um numero inteiro. Tente novamente.\n");
+			continue;
+		}
 
 		for(i = 0; i < subjectQnt; i++)
 		{
 			if(subjects[i].subjectId == subjectId)
 			{
 				printf("Codigo ja cadastrado em outra disciplina. Tente novamente.\n");
-				findedSubjectId = 0;
+				notFindedSubjectId = 1;
 			}
 		}
-	} while (!findedSubjectId);
+	} while (notFindedSubjectId);
 	
 	
+	do
+	{
+		printf("Digite o semestre da disciplina: ");
+		subjectSemester = validateInt();
 	
-	printf("Digite o semestre da disciplina: ");
-	scanf("%d", &subjectSemester);
+		if (subjectSemester == -1)	printf("Codigo so pode ser um numero inteiro. Tente novamente.\n");
+	} while (subjectSemester == -1);
+	
+
 
 	if(teacherQnt > 0)
 	{	
