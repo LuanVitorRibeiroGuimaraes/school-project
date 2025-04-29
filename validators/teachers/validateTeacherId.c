@@ -1,13 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "../../teachers/teachers.h" 
+#include "validators.h"
 
-int validateTeacherId(int pId)
+int validateTeacherId(int id)
 {
     for (int i = 0; i < teacherQnt; i++)
     {
-        if (teachers[i].teacherId == pId)
+        if (teachers[i].teacherId == id)
         {
             printf("\n------------------------------------------");
             printf("\nJa Existe um Professor Com Essa Matricula!");

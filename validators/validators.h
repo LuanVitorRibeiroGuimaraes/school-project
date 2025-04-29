@@ -7,16 +7,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "../students/students.h"
+#include "../teachers/teachers.h" 
 
 
 
 void validateCpf();
-void formatCpf(char cpf[]);
-
+void formatCpf(char cpf[]); //precisa implementar
 void formatCpf();
-
-void validadebirthDate(char birthDate[10]);//precisa testar
-
-void validateSemester();
+void validadebirthDate(char birthDate[10]); //precisa implementar
+int validateName(char name[]); //funcionando
+int validateTeacherId(int id); //funcionando
+int validateStudentId(int id); //funcionando
+int validateSex(char Sex); //funcionando
 
 #endif

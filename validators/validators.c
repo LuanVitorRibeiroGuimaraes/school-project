@@ -6,8 +6,6 @@ void formatCpf(char cpf[])
     char formatted[SIZE_CPF];
 
     sprintf(formatted, "%.3s.%.3s.%.3s-%.2s", cpf, cpf+3, cpf+6, cpf+9);
-
-    // printf("%s", formatted);
 }
 
 void validateCpf()
@@ -31,13 +29,3 @@ void validateCpf()
 
     formatCpf(CPF);
 }
-
-int main ()
-{
-    void validateCpf();
-
-    validateCpf();
-
-    return 0;
-}
-

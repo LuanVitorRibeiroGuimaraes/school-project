@@ -1,13 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "validators.h"
 
-int validateTeachersName(char name[]){
+int validateName(char name[]){
 
     for (int i = 0; name[i] != '\0'; i++) {
         if (isdigit(name[i])) {
             printf("\n-------------------------------------");
             printf("\nCampo 'Nome' Nao Pode Conter Numeros!");
-            printf("\n-------------------------------------");
+            printf("\n-------------------------------------\n");
             return 1; 
         }
     }
