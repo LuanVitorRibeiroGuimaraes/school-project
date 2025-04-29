@@ -19,9 +19,17 @@ void createStudent() //adicionar verificar se campo está vazio ou não
 
     if (studentQnt == SIZE_STUDENTS)
     {
-        printf("Nao e possuivel cadastrar mais alunos!");
+        printf("\nNao e possivel cadastrar mais alunos!\n");
         return;
     }
+
+    printf("Digite a data de aiversario: ");
+    fgets(birthDate, sizeof(birthDate), stdin);
+    birthDate[strcspn(birthDate, "\n")] = '\0';
+
+    printf("Digite o CPF do aluno: ");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
 
     printf("Digite a matrícula do aluno: ");
     scanf("%d", &studentId);
@@ -34,15 +42,6 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     printf("Digite o sexo do aluno: ");
     scanf("%c", &sex);
     getchar();
-
-    printf("Digite a data de aiversario: ");
-    fgets(birthDate, sizeof(birthDate), stdin);
-    birthDate[strcspn(birthDate, "\n")] = '\0';
-
-    printf("Digite o CPF do aluno: ");
-    fgets(cpf, sizeof(cpf), stdin);
-    cpf[strcspn(cpf, "\n")] = '\0'; //trocar o \n do final pelo \0
-    // validateCpf(cpf);
 
 
     students[studentQnt].studentId = studentId;

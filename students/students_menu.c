@@ -241,7 +241,9 @@ void studentMenu()
 
         if (menuOption  = 5)
         {
+            printf("\n---------------------------------------------------------\n");
             printf("voltar para menu principal");
+            printf("\n---------------------------------------------------------\n");
         }
     }
     while (menuOption != 0);

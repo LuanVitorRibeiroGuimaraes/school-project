@@ -12,12 +12,8 @@
 
 void validateCpf();
 void formatCpf(char cpf[]);
-
-void formatCpf();
-
-void validadebirthDate(char birthDate[10]);//precisa testar
-
-void validateSemester();
+void validadebirthDate(char birthDate[10]); //não implementado
+void validateSemester(); //não implementado
 
 
 #endif

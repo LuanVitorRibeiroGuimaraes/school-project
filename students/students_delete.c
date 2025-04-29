@@ -6,8 +6,11 @@ void deleteStudentById()
     bool find = false;
     int position;
 
-    printf("Digite a matricula do aluno que deseja deletar: ");
+    printf("\n---------------------------------------------------------\n");
+    printf("\nDigite a matricula do aluno que deseja deletar: \n");
+    printf(">> ");
     scanf("%d", &id);
+    printf("\n---------------------------------------------------------\n");
 
     for (int i = 0; i < studentQnt; i++)
     {
@@ -31,5 +34,7 @@ void deleteStudentById()
             studentQnt--;
         }
 
+        printf("\n---------------------------------------------------------\n");
         printf("\nEstudante nao encontrado.");
+        printf("\n---------------------------------------------------------\n");
 }

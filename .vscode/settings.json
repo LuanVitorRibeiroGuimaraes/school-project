@@ -5,6 +5,8 @@
         "stdio.h": "c",
         "validators.h": "c",
         "stdlib.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "subject.h": "c",
+        "teachers.h": "c"
     }
 }

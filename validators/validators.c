@@ -7,36 +7,55 @@ void formatCpf(char cpf[])
 
     sprintf(formatted, "%.3s.%.3s.%.3s-%.2s", cpf, cpf+3, cpf+6, cpf+9);
 
-    printf("%s", formatted);
+    // printf("%s", formatted);
 }
 
-void validateCpf()
-{
-    char CPF[SIZE_CPF];
+int validateCpf(char cpf[]) {
+    int i, qtdNumeros = 0;
 
-    printf("Digite o CPF: ");
-    fgets(CPF, sizeof(CPF), stdin);
-    CPF[strcspn(CPF, "\n")] = '\0';
-    
-    
-    if (strlen(CPF) < 11 || strlen(CPF) > 11)
-        do
-        {
-            printf("CPF precisa de 11 caracteres.\n");
-            printf("Digite o CPF: ");
-            fgets(CPF, sizeof(CPF), stdin);
-            CPF[strcspn(CPF, "\n")] = '\0';
+    for (i = 0; cpf[i] != '\0'; i++) {
+        if (cpf[i] >= '0' && cpf[i] <= '9')
+            qtdNumeros++;
+    }
+
+    if (qtdNumeros != 11)
+        return 0;
+
+
+    int soma = 0, resto, digito1, digito2;
+    int numeros[11];
+    int pos = 0;
+
+    for (i = 0; cpf[i] != '\0'; i++) {
+        if (cpf[i] >= '0' && cpf[i] <= '9') {
+            numeros[pos] = cpf[i] - '0';
+            pos++;
         }
-        while (strlen(CPF) < 11 || strlen(CPF) > 11);
+    }
 
-    formatCpf(CPF);
+    // Primeiro dígito
+    for (i = 0; i < 9; i++)
+        soma += numeros[i] * (10 - i);
+    
+    resto = soma % 11;
+    digito1 = (resto < 2) ? 0 : 11 - resto;
+
+    if (digito1 != numeros[9])
+        return 0;
+
+    // Segundo dígito
+    soma = 0;
+    for (i = 0; i < 10; i++)
+        soma += numeros[i] * (11 - i);
+
+    resto = soma % 11;
+    digito2 = (resto < 2) ? 0 : 11 - resto;
+
+    if (digito2 != numeros[10])
+        return 0;
+
+    return 1;
+
+    formatCpf(cpf);
 }
 
-int main ()
-{
-    void validateCpf();
-
-    validateCpf();
-
-    return 0;
-}

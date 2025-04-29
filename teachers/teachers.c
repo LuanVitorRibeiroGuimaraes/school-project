@@ -55,4 +55,3 @@ void createTeacher(){
     printf("Professor cadastrado com sucesso!\n");
 }
 #pragma endregion
-

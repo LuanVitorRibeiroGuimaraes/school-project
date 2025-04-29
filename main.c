@@ -5,6 +5,5 @@
 
 int main()
 {
-    createStudent();
-    listStudents();
+    studentMenu();
 }
