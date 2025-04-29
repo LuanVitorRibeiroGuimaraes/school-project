@@ -101,3 +101,6 @@ void createTeacher()
 }
 #pragma endregion
 
+#include <string.h>
+
+>>>>>>>>> Temporary merge branch 2

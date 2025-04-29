@@ -12,12 +12,12 @@
 
 void validateCpf();
 void formatCpf(char cpf[]);
-void validadebirthDate(char birthDate[10]); //não implementado
-void validateSemester(); //não implementado
 
-//? Validadores de Professores
-int validateTeacherId(int pId);
-int validateTeachersSex(char pSex); 
-int validateTeachersName(char name[]);
+void formatCpf();
 
-#endif 
+void validadebirthDate(char birthDate[10]);//precisa testar
+
+void validateSemester();
+
+
+#endif

@@ -2,6 +2,8 @@
 #define TEACHERS_H
 #include <stdbool.h>
 
+#define MAX_SUBJECTS 8
+
 //definindo o struct Teachers
 typedef struct
 {
@@ -10,7 +12,8 @@ typedef struct
     char sex;
     int birthDate;
     long cpf;
-    char cargo[15]; 
+    int assignedSubjects[MAX_SUBJECTS];
+    int assignedSubjectsQnt;
 }Teacher;
 
 extern int teacherQnt; 

@@ -3,6 +3,12 @@
         "students.h": "c",
         "validations.h": "c",
         "stdio.h": "c",
-        "validators.h": "c"
+        "validators.h": "c",
+<<<<<<<<< Temporary merge branch 1
+        "stdlib.h": "c",
+        "string.h": "c"
+=========
+        "teachers.h": "c"
+>>>>>>>>> Temporary merge branch 2
     }
 }

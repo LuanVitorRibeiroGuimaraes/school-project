@@ -2,6 +2,7 @@
 #define STUDENTS_SCHOOL_H
 
 #define SIZE_STUDENTS 100
+#define MAX_SUBJECTS 8
 
 #include "../subject/subject.h"
 #include <stdio.h>
@@ -18,7 +19,8 @@ typedef struct
     char birthDate[10];
     char cpf[14];
     bool active;
-    // char subjects;
+    int enrolledSubjects[MAX_SUBJECTS];
+    int enrolledSubjectsQnt;
 }Students;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
