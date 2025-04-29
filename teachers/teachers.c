@@ -17,7 +17,7 @@ void createTeacher()
     char sex;
     int birthDate;
     long cpf;
-    char cargo[] = "Professor(a)";
+    // char cargo[] = "Professor(a)";
 
     if (teacherQnt == SIZE_PROFESSORES)
     {
@@ -54,7 +54,7 @@ void createTeacher()
         printf("\n >>Digite o nome do professor: ");
         fgets(name, sizeof(name), stdin);
         name[strcspn(name, "\n")] = '\0';
-        if (validateTeachersName(name) == 1)
+        if (validateName(name) == 1)
         {
             continue;
             ;
@@ -68,7 +68,7 @@ void createTeacher()
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%c", &sex);
         sex = toupper(sex);
-        if (validateTeachersSex(sex) == 1)
+        if (validateSex(sex) == 1)
         {
             continue;
         }
@@ -90,7 +90,7 @@ void createTeacher()
     teachers[teacherQnt].sex = sex;
     teachers[teacherQnt].birthDate = birthDate;
     teachers[teacherQnt].cpf = cpf;
-    strcpy(teachers[teacherQnt].cargo, cargo);
+    // strcpy(teachers[teacherQnt].cargo, cargo);
 
     teacherQnt++;
 
@@ -102,5 +102,3 @@ void createTeacher()
 #pragma endregion
 
 #include <string.h>
-
->>>>>>>>> Temporary merge branch 2
