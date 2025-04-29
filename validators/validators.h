@@ -12,7 +12,7 @@
 
 
 
-void validateCpf();
+int validateCpf(char *cpf);
 void formatCpf(char cpf[]); //precisa implementar
 void formatCpf();
 void validadebirthDate(char birthDate[10]); //precisa implementar
