@@ -6,7 +6,10 @@ char buffer[100];
 
 void excluirProfessor(){
     listTeachers();
-    printf("\n Digite a matricula do professor no qual voce quer excluir:");
+
+    while (1)
+    {
+    printf("\nDigite a matricula do professor no qual voce quer excluir:");
     printf("\n>> ");
     int lId;
     fgets(buffer, sizeof(buffer), stdin);
@@ -19,9 +22,15 @@ void excluirProfessor(){
                 teachers[j] = teachers[j+1];
             }
             teacherQnt--;
-            printf("\nProfessor Excluido com Sucesso!"); 
+            printf("\n-------------------------------");
+            printf("\nProfessor Excluido com Sucesso!");
+            printf("\n-------------------------------");
             return;
         }
     }
-    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.\n");
+    printf("\n-------------------------------------------------");
+    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.");
+    printf("\n-------------------------------------------------");
+    continue;
+    }
 }
