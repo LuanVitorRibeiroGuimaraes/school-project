@@ -19,5 +19,4 @@ void validadebirthDate(char birthDate[10]);//precisa testar
 
 void validateSemester();
 
-
 #endif
