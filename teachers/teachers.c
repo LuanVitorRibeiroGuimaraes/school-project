@@ -80,5 +80,8 @@ void createTeacher()
 
     teacherQnt++;
 
-    printf("Professor cadastrado com sucesso!\n");
+    printf("\n---------------------------------");
+    printf("\nProfessor cadastrado com sucesso!");
+    printf("\n---------------------------------");
+    return; 
 }
