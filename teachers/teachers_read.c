@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include "teachers.h"
 
 char buffer[100];
@@ -31,7 +32,8 @@ bool isEmpityTeacher()
     return false;
 }
 
-int compararNomes(const void *a, const void *b) {
+int compararNomes(const void *a, const void *b)
+{
     return strcmp(((Teacher *)a)->name, ((Teacher *)b)->name);
 }
 
@@ -44,24 +46,30 @@ void listTeachers()
     {
         if (teachers[i].teacherId != 0)
         {
-            printf("\n-------------------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-            printf("\n-------------------------------------------------");
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
+            printf("\n-------------------------------------");
         }
     }
 }
 
-void listTeachersById(int pId)
+void listTeachersById()
 {
+    printf("Digite a matricula do professor que deseja buscar: \n");
+    printf(">> ");
+    int lId;
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%d", &lId);
+
     for (int i = 0; i < teacherQnt; i++)
     {
-        if (teachers[i].teacherId == pId)
+        if (teachers[i].teacherId == lId)
         {
-            printf("\n-------------------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-            printf("\n-------------------------------------------------");
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
+            printf("\n-------------------------------------");
             break;
         }
         else
@@ -73,63 +81,91 @@ void listTeachersById(int pId)
     }
 }
 
-void listTeachersByName(char pName[]){
+void listTeachersByName()
+{
+    printf("Digite o nome do professor que deseja buscar: \n");
+    printf(">> ");
+    char lName[100];
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%s", &lName);
+
     int lCont = 0;
 
     qsort(teachers, teacherQnt, sizeof(Teacher), compararNomes);
 
-    for(int i = 0; i < teacherQnt; i++){
-        if(strcmp(teachers[i].name, pName) == 0){
-            printf("\n-------------------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-            printf("\n-------------------------------------------------");
+    for (int i = 0; i < teacherQnt; i++)
+    {
+        if (strcmp(teachers[i].name, lName) == 0)
+        {
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
+            printf("\n-------------------------------------");
             lCont++;
         }
     }
-    if(lCont == 0){
-        printf("\n--------------------------------------------");
-        printf("\nNome nao encontrado."); 
-        printf("\n--------------------------------------------");
+    if (lCont == 0)
+    {
+        printf("\n--------------------");
+        printf("\nNome nao encontrado.");
+        printf("\n--------------------");
     }
-
 }
 
-void listTeachersBySex(char pSex[]){
+void listTeachersBySex()
+{
+    printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
+    printf(">> ");
+    char lSexo;
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%c", &lSexo);
+    lSexo = toupper(lSexo);
+
     int lCont = 0;
-    for(int i = 0; i < teacherQnt; i++){
-        if(strcmp(teachers[i].sex, pSex) == 0){
-            printf("\n-------------------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-            printf("\n-------------------------------------------------");
+    for (int i = 0; i < teacherQnt; i++)
+    {
+        if (teachers[i].sex == lSexo)
+        {
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
+            printf("\n-------------------------------------");
             lCont++;
         }
     }
-    if(lCont == 0){
-        printf("\n--------------------------------------------");
-        printf("\nNenhum professor com esse sexo."); 
-        printf("\n--------------------------------------------");
+    if (lCont == 0)
+    {
+        printf("\n-------------------------------");
+        printf("\nNenhum professor com esse sexo.");
+        printf("\n-------------------------------");
     }
-
 }
 
+void listTeachersBybirthDate()
+{
+    printf("Digite a data de aniversario (DDMMAAAA) do professor que deseja buscar: \n");
+    printf(">> ");
+    int lDataAniversario;
+    fgets(buffer, sizeof(buffer), stdin);
+    scanf(buffer, "%d", &lDataAniversario);
 
-void listTeachersBybirthDate(int pDataAniversario){
     int lCont = 0;
 
-    for(int i = 0; i < teacherQnt; i++){
-        if(strcmp(teachers[i].birthDate, pDataAniversario) == 0){
-            printf("\n-------------------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",
-                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, toupper(teachers[i].sex));
-            printf("\n-------------------------------------------------");
+    for (int i = 0; i < teacherQnt; i++)
+    {
+        if (teachers[i].birthDate == lDataAniversario)
+        {
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+                   teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
+            printf("\n-------------------------------------");
             lCont++;
         }
     }
-    if(lCont == 0){
-        printf("\n--------------------------------------------");
-        printf("\nNenhum professor com essa data de aniversario."); 
-        printf("\n--------------------------------------------");
+    if (lCont == 0)
+    {
+        printf("\n----------------------------------------------");
+        printf("\nNenhum professor com essa data de aniversario.");
+        printf("\n----------------------------------------------");
     }
 }

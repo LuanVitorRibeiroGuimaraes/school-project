@@ -10,6 +10,7 @@ typedef struct
     char sex;
     int birthDate;
     long cpf;
+    char cargo[15]; 
 }Teacher;
 
 extern int teacherQnt; 

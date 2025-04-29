@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include "teachers.h"
 
 void teachersMenu()
@@ -16,7 +15,7 @@ void teachersMenu()
         printf("7 - Listar Professores Pela Data de Aniversario.\n");
         printf("8 - Excluir Professor.\n");
         printf("9 - Voltar Para o Menu Principal\n");
-        printf("----------------------------------------------------\n");
+        printf("---------------------------------------------------\n");
 
         int resposta;
         char buffer[100];
@@ -28,17 +27,21 @@ void teachersMenu()
         switch (resposta)
         {
         default:
-            printf("Selecione uma das opcoes validas!\n");
+            printf("\n---------------------------------");
+            printf("\nSelecione uma das opcoes validas!");
+            printf("\n---------------------------------");
             break;
 
         case 1:
             createTeacher();
             break;
+
         case 2:
             if (isEmpityTeacher() == true)
             {
                 break;
             }
+
             updateTeacher();
             break;
 
@@ -47,6 +50,7 @@ void teachersMenu()
             {
                 break;
             }
+
             listTeachers();
             break;
 
@@ -55,13 +59,8 @@ void teachersMenu()
             {
                 break;
             }
-            printf("Digite a matricula do professor que deseja buscar: \n");
-            printf(">> ");
-            int lId;
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%d", &lId);
 
-            listTeachersById(lId);
+            listTeachersById();
             break;
 
         case 5:
@@ -69,13 +68,8 @@ void teachersMenu()
             {
                 break;
             }
-            printf("Digite o nome do professor que deseja buscar: \n");
-            printf(">> ");
-            char lName[100];
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%s", &lName);
 
-            listTeachersByName(lName);
+            listTeachersByName();
             break;
 
         case 6:
@@ -83,13 +77,8 @@ void teachersMenu()
             {
                 break;
             }
-            printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
-            printf(">> ");
-            char lSexo;
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%c", &lSexo);
-
-            listTeachersBySex(lSexo);
+        
+            listTeachersBySex();
             break;
 
         case 7:
@@ -97,12 +86,8 @@ void teachersMenu()
             {
                 break;
             }
-            printf("Digite a data de aniversario (dd/mm/aaaa) do professor que deseja buscar: \n");
-            printf(">> ");
-            int lDataAniversario;
-            fgets(buffer, sizeof(buffer), stdin);
-            scanf(buffer, "%d", &lDataAniversario);
-            listTeachersBybirthDate(lDataAniversario);
+            
+            listTeachersBybirthDate();
             break;
 
         case 8:
