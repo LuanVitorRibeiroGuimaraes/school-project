@@ -20,5 +20,6 @@ int validateName(char name[]); //funcionando
 int validateTeacherId(int id); //funcionando
 int validateStudentId(int id); //funcionando
 int validateSex(char Sex); //funcionando
+int validateInt();
 
 #endif
