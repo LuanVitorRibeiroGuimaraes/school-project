@@ -1,13 +1,13 @@
 #include "students.h"
 
-void deleteStudentById()
+void deleteStudentById() //últimos ajustes
 {
     int id;
     bool find = false;
     int position;
 
     printf("\n---------------------------------------------------------\n");
-    printf("\nDigite a matricula do aluno que deseja deletar: \n");
+    printf("Digite a matricula do aluno que deseja deletar: \n");
     printf(">> ");
     scanf("%d", &id);
     printf("\n---------------------------------------------------------\n");
@@ -18,6 +18,7 @@ void deleteStudentById()
             find = true;
             position = i;
             students[i].active = false;
+            printf("Aluno: %s, matricula: %d: Deletado!", students[i].name, students[i].studentId);
             break;
     }
 
@@ -25,16 +26,15 @@ void deleteStudentById()
         {
             for (int i = 0; i < studentQnt - 1; i++) //aplicando o shift
             {
-                students[i].studentId = students[i+1].studentId;
-                strcpy(students[i].name, students[i+1].name);
-                students[i].sex = students[i+1].sex;
-                strcpy(students[i].birthDate, students[i+1].birthDate);
-                strcpy(students[i].cpf, students[i+1].cpf);
+                students[i] = students[i+1];
             }
             studentQnt--;
+            return;
         }
-
-        printf("\n---------------------------------------------------------\n");
-        printf("\nEstudante nao encontrado.");
-        printf("\n---------------------------------------------------------\n");
+        else
+        {
+            printf("\n---------------------------------------------\n");
+            printf("\nAluno nao encontrado.");
+            printf("\n---------------------------------------------\n");
+        }
 }

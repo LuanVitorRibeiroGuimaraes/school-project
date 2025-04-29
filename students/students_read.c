@@ -4,17 +4,29 @@
 
 void listStudents() //funcionando
 {
+    bool exist;
+
     if (studentQnt == 0)
     {
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
         printf("Nao ha alunos cadastrados!");
+        printf("\n---------------------------------------------------\n");
         return;
-        printf("----------------------------------------------------\n");
     }
 
     for (int i = 0; i < studentQnt; i++)
     {
-        printf("Nome: %s, matricula: %d\n", students[i].name, students[i].studentId);
+        printf("\n-------------------------------------");
+        printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",students[i].name, students[i].studentId, students[i].cpf, students[i].birthDate, students[i].sex);
+        printf("\n-------------------------------------");
+        exist = true;
+    }
+
+    if (!exist)
+    {
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados com essa letra!\n");
+        printf("\n----------------------------------------------------\n");
     }
 }
 
@@ -22,9 +34,9 @@ void listStudentsById() //funcionando
 {
     if (studentQnt == 0)
     {
-        printf("----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!");
+        printf("\n---------------------------------------------------\n");
         return;
     }
 
@@ -40,9 +52,9 @@ void listStudentsById() //funcionando
     {
         if (students[i].studentId == id && students[i].active)
         {
-            printf("---------------------------------------------------------\n");
-            printf("Aluno: %s, matricula: %d, sexo: %c, data nascimento: %s.\n", students[i].name, students[i].studentId, students[i].sex, students[i].birthDate);
-            printf("---------------------------------------------------------\n");
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",students[i].name,    students[i].studentId, students[i].cpf, students[i].birthDate, students[i].sex);
+            printf("\n-------------------------------------");
             exist = true;
             break;
         }
@@ -50,9 +62,9 @@ void listStudentsById() //funcionando
 
     if (!exist)
     {
-        printf("----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados com esse id!\n");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados com essa letra!\n");
+        printf("\n----------------------------------------------------\n");
     }
 }
 
@@ -60,9 +72,9 @@ void listStudentsByLetter() //funcionando
 {
     if (studentQnt == 0)
     {
-        printf("----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados!\n");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!");
+        printf("\n---------------------------------------------------\n");
         return;
     }
 
@@ -78,7 +90,7 @@ void listStudentsByLetter() //funcionando
 
     for (int i = 0; i < qtn; i++)
     {
-        printf("Digite a %d letra: ", i+1);
+        printf("Digite a %do letra: ", i+1);
         scanf("%c", &letter[i]);
     }
 
@@ -86,61 +98,69 @@ void listStudentsByLetter() //funcionando
     {
         if (students[i].name[0] == letter[i] && students[i].active)
         {
-            printf("----------------------------------------------------\n");
-            printf("Aluno: %s, matricula: %d, sexo: %c, data nascimento: %s.\n", students[i].name, students[i].studentId, students[i].sex, students[i].birthDate);
-            printf("----------------------------------------------------\n");
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",students[i].name,    students[i].studentId, students[i].cpf, students[i].birthDate, students[i].sex);
+            printf("\n-------------------------------------");
             exist = true;
         }
     }
 
     if (!exist)
     {
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
         printf("Nao ha alunos cadastrados com essa letra!\n");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
     }
 }
 
-void listStudentsBySex() //nao printa nada
+void listStudentsBySex() //funcionando
 {
     if (studentQnt == 0)
     {
-        printf("----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!");
+        printf("\n---------------------------------------------------\n");
         return;
     }
 
     char sex;
     bool exist = true;
 
-    do
+    while (true)
     {
         printf("Digite o sexo ('M' ou 'F') para filtrar os alunos: ");
         printf("\n>> ");
-        scanf("%c", &sex);
-        getchar();
-    }
-    while (sex != 'M' || sex != 'm' || sex != 'F' || sex != 'f');
+        scanf(" %c", &sex);
 
+        if (validateSex(sex) == 0)
+            break;
+    }
+        
     for (int i = 0; i < studentQnt; i++)
     {
         if (students[i].sex == sex && students[i].active)
-            printf("----------------------------------------------------\n");
-                printf("Aluno: %s, matricula: %d, sexo: %c, data nascimento: %s.\n", students[i].name, students[i].studentId, students[i].sex, students[i].birthDate);
-            printf("----------------------------------------------------\n");
+            printf("\n-------------------------------------");
+            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c",students[i].name,        students[i].studentId, students[i].cpf, students[i].birthDate, students[i].sex);
+            printf("\n-------------------------------------");
             exist = true;
     }
 
     if (!exist)
     {
-        printf("----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados com esse sexo!\n");
-        printf("----------------------------------------------------\n");
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!\n");
+        printf("\n---------------------------------------------------\n");
+        return;
     }
 }
 
 void listStudentsBybirthDate()
 {
-    printf("falta implementar");
+    if (studentQnt == 0)
+    {
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!\n");
+        printf("\n---------------------------------------------------\n");
+        return;
+    }
 }

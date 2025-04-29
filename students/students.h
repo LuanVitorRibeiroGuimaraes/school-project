@@ -4,11 +4,14 @@
 #define SIZE_STUDENTS 100
 #define MAX_SUBJECTS 8
 
+#include "../validators/validators.h"
 #include "../subject/subject.h"
+#include "ctype.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+
 
 //definindo o struct Students
 typedef struct
@@ -16,8 +19,8 @@ typedef struct
     int studentId; 
     char name[50];
     char sex;
-    char birthDate[10];
-    char cpf[14];
+    int birthDate;
+    long cpf;
     bool active;
     int enrolledSubjects[MAX_SUBJECTS];
     int enrolledSubjectsQnt;
@@ -27,14 +30,15 @@ typedef struct
 extern int studentQnt; 
 extern Students students[];
 
-void studentMenu(); //precisa testar
-void createStudent(); //precisa testar
-void updateStudent(); //precisa testar
-void listStudents(); //working
-void listStudentsById(); //precisa testar
-void listStudentsByLetter(); //precisa testar
-void listStudentsBySex(); //precisa testar
-void listStudentsBybirthDate(); //precisa testar
-void deleteStudentById(); //precisa testar
+void studentMenu(); //falta testar
+void createStudent(); //funcionando - faltando validador de cpf e aniversario
+void updateStudent(); //funcionando
+void listStudents(); //funcionando
+void listStudentsById(); //funcionando
+void listStudentsByLetter(); //funcionando
+void listStudentsBySex(); //funcionando
+void listStudentsBybirthDate(); //faltando validador de cpf e aniversario
+void deleteStudentById(); //funcionando
+void toUpperCase(char *name); //funcionando
 
 #endif

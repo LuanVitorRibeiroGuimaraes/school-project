@@ -14,6 +14,8 @@ void testReadFunctionsMenu()
         printf("4 - Testar: Listar alunos por letra inicial\n");
         printf("5 - Testar: Listar alunos por sexo\n");
         printf("6 - Testar: Listar alunos por data de nascimento\n");
+        printf("7 - Testar: Deletar aluno por id\n");
+        printf("8 - Testar: Atualizar aluno por id\n");
         printf("---------------------------------------------------------\n");
         printf(">> ");
         scanf("%d", &menuOption);
@@ -53,6 +55,14 @@ void testReadFunctionsMenu()
                 printf("Função ainda não implementada.\n");
                 break;
 
+            case 7:
+                deleteStudentById();
+                break;
+
+            case 8:
+                updateStudent();
+                break;
+                
             default:
                 printf("Opcao invalida!\n");
         }

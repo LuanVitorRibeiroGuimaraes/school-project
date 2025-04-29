@@ -3,30 +3,54 @@
 
 void updateStudent()
 {
-    int id;
-    int find;
-    char name[100];
-    char date[100];
+    if (studentQnt == 0)
+    {
+        printf("\n----------------------------------------------------\n");
+        printf("Nao ha alunos cadastrados!");
+        printf("\n---------------------------------------------------\n");
+        return;
+    }
 
+    int id;
+    char name[100];
+    bool exist = true;
+    int birthDate;
+
+    printf("\n----------------------------------------------------\n");
     printf("Digite a matricula do aluno que deseja atualizar: ");
+    printf("\n>> ");
     scanf("%d", &id);
+    printf("\n----------------------------------------------------\n");
+    getchar();
 
     for (int i = 0; i < studentQnt; i++)
     {
         if (students[i].studentId == id && students[i].active)
         {
-            printf("Digite o nome: ");
-            fgets(name, sizeof(name), stdin);
-            name[strcspn(name, "\n")] = '\0';
+            exist = true;
+            while (true)
+            {
+                printf("Digite o nome: ");
+                fgets(name, sizeof(name), stdin);
+                name[strcspn(name, "\n")] = '\0';
 
-            getchar();
+                if (validateName(name) == 0)
+                    break;
+            }
 
-            printf("Digite a data de nascimento: ");
-            fgets(date, sizeof(date), stdin);
-            date[strcspn(date, "\n")] = '\0';
+            printf("Digite a data de aiversario: ");
+            scanf("%d", &birthDate);
 
             strcpy(students[i].name, name);
-            strcpy(students[i].birthDate, date);
+            students[i].birthDate = birthDate;
+        }
+        break;
+
+        if (!exist)
+        {
+            printf("\n----------------------------------------------------\n");
+            printf("Nao existe aluno com essa matricula!");
+            printf("\n---------------------------------------------------\n");
         }
     }
 }
