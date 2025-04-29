@@ -1,9 +1,10 @@
 #include <stdio.h>
 
-#include "../validators.h"
-#include "../students.h"
+#include "validators/validators.h"
+#include "students/students.h"
 
 int main()
 {
-    studentMenu();
+    createStudent();
+    listStudents();
 }

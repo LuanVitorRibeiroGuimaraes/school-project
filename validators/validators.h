@@ -15,5 +15,9 @@ void formatCpf(char cpf[]);
 void validadebirthDate(char birthDate[10]); //não implementado
 void validateSemester(); //não implementado
 
+//? Validadores de Professores
+int validateTeacherId(int pId);
+int validateTeachersSex(char pSex); 
+int validateTeachersName(char name[]);
 
-#endif
+#endif 

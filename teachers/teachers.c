@@ -1,57 +1,103 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "teachers.h"
+#include "string.h"
 #include "../validators/validators.h"
 
 #define SIZE_PROFESSORES 100
 
 teacherQnt = 0;
-Teacher teachers[SIZE_PROFESSORES]; 
+Teacher teachers[SIZE_PROFESSORES];
 
-#pragma region CRIAR PROFESSOR
-void createTeacher(){
-    int teacherId; 
+void createTeacher()
+{
+    int teacherId;
     char name[100];
     char sex;
     int birthDate;
     long cpf;
+    char cargo[] = "Professor(a)";
 
-    if(teacherQnt == SIZE_PROFESSORES){
-        printf("\nNao eh possivel cadastrar mais alunos!");
+    if (teacherQnt == SIZE_PROFESSORES)
+    {
+        printf("\n-------------------------------------------");
+        printf("\nNao eh possivel cadastrar mais professores!");
+        printf("\n-------------------------------------------");
+        return;
     }
 
-    printf("Digite a matrícula do aluno: ");
-    scanf("%d", &teacherId);
+    char buffer[100];
 
-    getchar();
+    while (1)
+    {
+        printf("\n >>Digite a matricula do professor: ");
+        fgets(buffer, sizeof(buffer), stdin);
 
-    printf("Digite o nome do professor: ");
-    fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0';
+        //* VALIDA SE O USUARIO DIGITOU UM NUMERO!
+        if (sscanf(buffer, "%d", &teacherId) != 1 || teacherId <= 0)
+        {
+            printf("\n----------------------------------------");
+            printf("\nDigite Somente Numeros Maiores Que Zero!");
+            printf("\n----------------------------------------");
+            continue;
+        }
+        if (validateTeacherId(teacherId) == 1)
+        {
+            continue;
+        }
+        break;
+    }
 
+    while (1)
+    {
+        printf("\n >>Digite o nome do professor: ");
+        fgets(name, sizeof(name), stdin);
+        name[strcspn(name, "\n")] = '\0';
+        if (validateTeachersName(name) == 1)
+        {
+            continue;
+            ;
+        }
+        break;
+    }
 
-    printf("Digite o sexo do professor (F ou M): ");
-    scanf("%c", &sex);
+    while (1)
+    {
+        printf("\n >>Digite o sexo do professor (F ou M): ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%c", &sex);
+        sex = toupper(sex);
+        if (validateTeachersSex(sex) == 1)
+        {
+            continue;
+        }
+        break;
+    }
 
-    getchar();
+    printf("\n >>Digite a data de aiversario (DDMMAAAA): ");
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%d", &birthDate);
+    //! VALIDAR DATA DE ANIVERSARIO
 
-    printf("Digite a data de aiversario: ");
-    scanf("%d", &birthDate);
+    printf("\n >>Digite o CPF do professor: ");
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%ld", &cpf);
+    //! validateCpf(cpf);
 
-    getchar();
-
-    printf("Digite o CPF do professor: ");
-    scanf("%ld", &cpf);
-    validateCpf(cpf);
-
-    teachers[teacherQnt].studentId = teacherId;
+    teachers[teacherQnt].teacherId = teacherId;
     strcpy(teachers[teacherQnt].name, name);
     teachers[teacherQnt].sex = sex;
     teachers[teacherQnt].birthDate = birthDate;
     teachers[teacherQnt].cpf = cpf;
+    strcpy(teachers[teacherQnt].cargo, cargo);
 
-    teacherQnt ++;
+    teacherQnt++;
 
-    printf("Professor cadastrado com sucesso!\n");
+    printf("\n---------------------------------");
+    printf("\nProfessor cadastrado com sucesso!");
+    printf("\n---------------------------------");
+    return;
 }
 #pragma endregion
+

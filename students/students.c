@@ -17,6 +17,7 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     char birthDate[10];
     char cpf[14];
 
+
     if (studentQnt == SIZE_STUDENTS)
     {
         printf("\nNao e possivel cadastrar mais alunos!\n");
