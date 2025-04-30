@@ -1,12 +1,13 @@
 #include "students.h"
+#include "../subject/subject.h"
 
-void deleteStudentById() //funcionando
+void deleteStudentById()
 {
-    if (studentQnt == 0) //ok
+    if (studentQnt == 0)
     {
-        printf("\n----------------------------------------------------\n");
-        printf("Nao ha alunos cadastrados!");
-        printf("\n---------------------------------------------------\n");
+        printf("\n--------------------------");
+        printf("\nNao ha alunos cadastrados!");
+        printf("\n--------------------------");
         return;
     }
 
@@ -17,15 +18,15 @@ void deleteStudentById() //funcionando
     int currentId;
     bool currentStatus;
 
-    printf("\n---------------------------------------------------------\n");
-    printf("Digite a matricula do aluno que deseja deletar: \n");
-    printf(">> ");
+    printf("\n-----------------------------------------------");
+    printf("\nDigite a matricula do aluno que deseja deletar:");
+    printf("\n>> ");
     scanf("%d", &id);
-    printf("\n---------------------------------------------------------\n");
+    printf("\n-----------------------------------------------");
 
     toDelete = id;
 
-    for (int i = 0; i < studentQnt; i++) //percorrendo o loop para encontrar o aluno
+    for (int i = 0; i < studentQnt; i++)
     {
         currentId = students[i].studentId;
         currentStatus = students[i].active;
@@ -34,7 +35,9 @@ void deleteStudentById() //funcionando
         {
             position = i;
             found = true;
+            printf("\n---------------------------------------");
             printf("\nAluno: %s, matricula: %d, foi deletado!", students[i].name, students[i].studentId);
+            printf("\n---------------------------------------");
             currentStatus = false;
             break;
         }
@@ -54,7 +57,7 @@ void deleteStudentById() //funcionando
             }    
         }
         
-        for (int i = 0; i < studentQnt - 1; i++) //aplicando o shift
+        for (int i = 0; i < studentQnt - 1; i++)
         {
             students[i] = students[i+1];
         }
@@ -64,9 +67,9 @@ void deleteStudentById() //funcionando
     
     if (!found)
     {
-        printf("\n---------------------------------------------\n");
+        printf("\n---------------------");
         printf("\nAluno nao encontrado.");
-        printf("\n---------------------------------------------\n");
+        printf("\n---------------------");
     }
 }
 

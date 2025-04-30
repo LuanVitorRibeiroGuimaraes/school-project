@@ -3,12 +3,14 @@
 int studentQnt = 0;
 Students students[SIZE_STUDENTS];
 
-void createStudent() //adicionar verificar se campo está vazio ou não
+void createStudent()
 {
 
     if (studentQnt == SIZE_STUDENTS)
     {
-        printf("\nNao e possivel cadastrar mais alunos!\n");
+        printf("\n-------------------------------------");
+        printf("\nNao e possivel cadastrar mais alunos!");
+        printf("\n-------------------------------------");
         return;
     }
 
@@ -17,31 +19,53 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     char name[100];
     char upper;
     char sex;
-    int birthDate;
+    int day, month, year;
     char cpf[15];
-
     char buffer[100];
 
-    printf("\n >>Digite a data de aniversario (DDMMAAAA): ");
-    scanf("%d", &birthDate);
-    getchar();
+    printf("\nDigite a data de nascimento do aluno:");
 
     while (true)
     {
-        printf("\n >>Digite o CPF do aluno: ");
+        printf("\n >> Dia (DD): ");
+        scanf("%d", &day);
+
+        printf("\n >> Mes (MM): ");
+        scanf("%d", &month);
+
+        printf("\n >> Ano (AAAA): ");
+        scanf("%d", &year);
+
+        if (validateData(day, month, year))
+            break;
+        else
+        {
+            printf("\n----------------------------------------------");
+            printf("\nData invalida! Tente novamente!");
+            printf("\n----------------------------------------------");
+        }
+    }
+
+    while (true)
+    {
+        printf("\n >> Digite o CPF do aluno: ");
         fgets(cpf, sizeof(cpf), stdin);
-        cpf[strcspn(cpf, "\n")] = '\0'; //trocar o \n do final pelo \0
+        cpf[strcspn(cpf, "\n")] = '\0';
 
         if (validateCpf(cpf))
             break;
         else
-            printf("\nCpf invalido! Tente novamente!\n");
+        {
+            printf("\n------------------------------");
+            printf("\nCpf invalido! Tente novamente!");
+            printf("\n------------------------------");
+        }
     }
 
     while (true)
     {
 
-        printf("\n >>Digite a matricula do aluno: ");
+        printf("\n >> Digite a matricula do aluno: ");
         fgets(buffer, sizeof(buffer), stdin);
 
         if (sscanf(buffer, "%d", &studentId) != 1 || studentId <= 0)
@@ -57,14 +81,14 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     }
     
 
-    printf("\n >>Digite o nome do aluno: ");
+    printf("\n >> Digite o nome do aluno: ");
     fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0'; //trocar o \n do final pelo \0
+    name[strcspn(name, "\n")] = '\0';
     toUpperCase(name);
 
     while (true)
     {
-        printf("\n >>Digite o sexo do aluno (F ou M): ");
+        printf("\n >> Digite o sexo do aluno (F ou M): ");
         scanf(" %c", &sex);
 
         if (validateSex(sex) == 0)
@@ -74,7 +98,9 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     students[studentQnt].studentId = studentId;
     strcpy(students[studentQnt].name, name);
     students[studentQnt].sex = sex;
-    students[studentQnt].birthDate = birthDate;
+    students[studentQnt].birthDay = day;
+    students[studentQnt].birthMonth = month;
+    students[studentQnt].birthYear = year;
     students[studentQnt].active = active;
     strcpy(students[studentQnt].cpf, cpf);
 

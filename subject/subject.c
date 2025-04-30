@@ -1,9 +1,8 @@
 #include "subject.h"
 
 
-#define SIZE_SUBJECTS 40
-int subjectQnt = 0;
 Subject subjects[SIZE_SUBJECTS];
+int subjectQnt = 0;
 
 void createSubject()
 {
