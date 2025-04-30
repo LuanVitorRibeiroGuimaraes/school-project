@@ -30,7 +30,7 @@ void updateTeacher()
                 printf("\n >>Digite o novo nome do professor: ");
                 fgets(buffer, sizeof(buffer), stdin);
                 sscanf(buffer, "%s", &lName);
-                if (validateTeachersName(lName) == 1)
+                if (validateName(lName) == 1)
                 {
                     continue;
                 }
@@ -44,7 +44,7 @@ void updateTeacher()
                 fgets(buffer, sizeof(buffer), stdin);
                 sscanf(buffer, "%c", &lSex);
                 lSex = toupper(lSex);
-                if (validateTeachersSex(lSex) == 1)
+                if (validateSex(lSex) == 1)
                 {
                     continue;
                 }
@@ -59,12 +59,18 @@ void updateTeacher()
 
             teachers[i].birthDate = lBirthDate;
 
-            printf("\n >>Digite o novo CPF do professor: ");
-            fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%ld", &lCpf);
-            //! validateCpf(cpf);
-
-            teachers[i].cpf = lCpf;
+            while (1)
+            {
+                printf("\n >>Digite o novo CPF do professor: ");
+                fgets(buffer, sizeof(buffer), stdin);
+                sscanf(buffer, "%s", &lCpf);
+                if (validateCpf(lCpf) == 0)
+                {
+                    continue;
+                }
+                strcpy(teachers[i].cpf, lCpf);
+                break;
+            }
 
             printf("\n----------------------------");
             printf("\nDados alterados com sucesso!");
@@ -72,5 +78,8 @@ void updateTeacher()
             return;
         }
     }
-    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.\n");
+    printf("\n-------------------------------------------------");
+    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.");
+    printf("\n-------------------------------------------------");
+    return;
 }

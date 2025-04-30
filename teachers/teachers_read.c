@@ -47,7 +47,7 @@ void listTeachers()
         if (teachers[i].teacherId != 0)
         {
             printf("\n-------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+            printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
             printf("\n-------------------------------------");
         }
@@ -67,7 +67,7 @@ void listTeachersById()
         if (teachers[i].teacherId == lId)
         {
             printf("\n-------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+            printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
             printf("\n-------------------------------------");
             break;
@@ -98,7 +98,7 @@ void listTeachersByName()
         if (strcmp(teachers[i].name, lName) == 0)
         {
             printf("\n-------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+            printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
             printf("\n-------------------------------------");
             lCont++;
@@ -127,7 +127,7 @@ void listTeachersBySex()
         if (teachers[i].sex == lSexo)
         {
             printf("\n-------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+            printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
             printf("\n-------------------------------------");
             lCont++;
@@ -156,7 +156,7 @@ void listTeachersBybirthDate()
         if (teachers[i].birthDate == lDataAniversario)
         {
             printf("\n-------------------------------------");
-            printf("\nNome: %s \nMatricula: %d \nCPF: %ld \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
+            printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d \nSexo: %c \nCargo: %s",
                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDate, teachers[i].sex, teachers[0].cargo);
             printf("\n-------------------------------------");
             lCont++;

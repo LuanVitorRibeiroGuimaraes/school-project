@@ -14,7 +14,9 @@ int validateCpf(char *cpf) //funcionando.
     int len = strlen(cpf);
     if(len != 11)
     {
-        printf(" [!] CPF deve conter exatamente 11 dígitos.\n");
+        printf("\n------------------------------------------");
+        printf("\n[!] CPF deve conter exatamente 11 dígitos.");
+        printf("\n------------------------------------------");
         return 0;
     }
 
@@ -23,7 +25,9 @@ int validateCpf(char *cpf) //funcionando.
         (strcmp(cpf,"66666666666") == 0) || (strcmp(cpf,"77777777777") == 0) || (strcmp(cpf,"88888888888") == 0) ||
         (strcmp(cpf,"99999999999") == 0))
     {
-        printf(" [!] CPF com todos os dígitos iguais é inválido.\n");
+        printf("\n------------------------------------------------");
+        printf("\n[!] CPF com todos os digitos iguais eh invalido.");
+        printf("\n------------------------------------------------");
         return 0; ///se o CPF tiver todos os números iguais ele é inválido.
     }
 
@@ -39,7 +43,9 @@ int validateCpf(char *cpf) //funcionando.
             digito1 = 11 - digito1; //se o resto for maior que 2 subtrai de 11
         if((cpf[9]-48) != digito1)
         {
-            printf(" [!] Dígito verificador 1 inválido.\n");
+            printf("\n----------------------------------");
+            printf("\n[!] Digito verificador 1 invalido.");
+            printf("\n----------------------------------");
             return 0;
         }
         else
@@ -54,7 +60,9 @@ int validateCpf(char *cpf) //funcionando.
                 digito2 = 11 - digito2;
             if((cpf[10]-48) != digito2)
             {
-                printf(" [!] Dígito verificador 2 inválido.\n");
+                printf("\n----------------------------------");
+                printf("\n[!] Digito verificador 2 invalido.");
+                printf("\n----------------------------------");
                 return 0;
             }
         }

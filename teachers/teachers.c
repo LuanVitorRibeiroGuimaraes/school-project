@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "teachers.h"
-#include "string.h"
+#include <string.h>
 #include "../validators/validators.h"
 
 #define SIZE_PROFESSORES 100
@@ -16,8 +16,8 @@ void createTeacher()
     char name[100];
     char sex;
     int birthDate;
-    long cpf;
-    // char cargo[] = "Professor(a)";
+    char cpf[15];
+    char cargo[] = "Professor(a)";
 
     if (teacherQnt == SIZE_PROFESSORES)
     {
@@ -57,7 +57,6 @@ void createTeacher()
         if (validateName(name) == 1)
         {
             continue;
-            ;
         }
         break;
     }
@@ -80,17 +79,23 @@ void createTeacher()
     sscanf(buffer, "%d", &birthDate);
     //! VALIDAR DATA DE ANIVERSARIO
 
-    printf("\n >>Digite o CPF do professor: ");
-    fgets(buffer, sizeof(buffer), stdin);
-    sscanf(buffer, "%ld", &cpf);
-    //! validateCpf(cpf);
-
+    while (1)
+    {
+        printf("\n >>Digite o CPF do professor: ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%s", &cpf);
+        if(validateCpf(cpf) == 0){
+            continue;
+        }
+        break;   
+    }
+    
     teachers[teacherQnt].teacherId = teacherId;
     strcpy(teachers[teacherQnt].name, name);
     teachers[teacherQnt].sex = sex;
     teachers[teacherQnt].birthDate = birthDate;
-    teachers[teacherQnt].cpf = cpf;
-    // strcpy(teachers[teacherQnt].cargo, cargo);
+    strcpy(teachers[teacherQnt].cpf, cpf);
+    strcpy(teachers[teacherQnt].cargo, cargo);
 
     teacherQnt++;
 
@@ -101,4 +106,3 @@ void createTeacher()
 }
 #pragma endregion
 
-#include <string.h>

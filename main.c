@@ -1,10 +1,11 @@
 #include <stdio.h>
-
-#include "../validators.h"
-#include "../students.h"
+#include "validators/validators.h"
+#include "students/students.h"
+#include "teachers/teachers.h"
 
 int main()
 {
-    createStudent();
-    listStudents();
+    teachersMenu();
+
+    return 0;
 }
