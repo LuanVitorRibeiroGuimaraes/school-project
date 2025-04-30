@@ -16,7 +16,7 @@
 //definindo o struct Students
 typedef struct
 {
-    int studentId; 
+    int studentId;
     char name[50];
     char sex;
     int birthDate;
@@ -24,6 +24,9 @@ typedef struct
     bool active;
     int enrolledSubjects[MAX_SUBJECTS];
     int enrolledSubjectsQnt;
+    int birthDay;
+    int birthMonth;
+    int birthYear;
 }Students;
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
@@ -37,7 +40,7 @@ void listStudents(); //funcionando
 void listStudentsById(); //funcionando
 void listStudentsByLetter(); //funcionando
 void listStudentsBySex(); //funcionando
-void listStudentsBybirthDate(); //faltando validador de cpf e aniversario
+void listStudentsByBirthDate();//funcionando
 void deleteStudentById(); //funcionando
 void toUpperCase(char *name); //funcionando
 

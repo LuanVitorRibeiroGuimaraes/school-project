@@ -51,8 +51,7 @@ void testFunctionsMenu()
             }
 
             case 6:
-                // listStudentsByBirthDate();
-                printf("Função ainda não implementada.\n");
+                listStudentsByBirthDate();
                 break;
 
             case 7:

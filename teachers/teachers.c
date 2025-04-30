@@ -7,7 +7,7 @@
 
 #define SIZE_PROFESSORES 100
 
-teacherQnt = 0;
+int teacherQnt = 0;
 Teacher teachers[SIZE_PROFESSORES];
 
 void createTeacher()

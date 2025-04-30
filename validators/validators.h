@@ -13,9 +13,8 @@
 
 
 int validateCpf(char *cpf);
-void formatCpf(char cpf[]); 
-void formatCpf();
-void validadebirthDate(char birthDate[10]); 
+void formatCpf(char cpf[]);
+void listStudentsByBirthDate();
 int validateName(char name[]); 
 int validateTeacherId(int id); 
 int validateStudentId(int id); 

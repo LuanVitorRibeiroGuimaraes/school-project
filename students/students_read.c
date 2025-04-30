@@ -165,13 +165,54 @@ void listStudentsBySex()
     }
 }
 
-void listStudentsBybirthDate()
+void listStudentsByBirthDate()
 {
     if (studentQnt == 0)
     {
         printf("\n--------------------------");
-        printf("Nao ha alunos cadastrados!\n");
-        printf("\n--------------------------");
+        printf("\nNao ha alunos cadastrados!");
+        printf("\n--------------------------\n");
         return;
     }
+
+    int day, month, year;
+    int valid;
+
+    do
+    {
+        printf("\n----------------------------------");
+        printf("\nDigite a data de nascimento (dd mm aaaa): ");
+        printf("\n>> ");
+        scanf("%d %d %d", &day, &month, &year);
+        valid = validateData(day, month, year);
+    } while (!valid);
+
+    bool found = false;
+
+    printf("\n---------------------------------------------");
+    printf("\nAlunos com data de nascimento %02d/%02d/%04d:", day, month, year);
+    printf("\n---------------------------------------------");
+
+    for (int i = 0; i < studentQnt; i++)
+    {
+        if (!students[i].active) continue;
+
+        if (students[i].birthDay == day &&
+            students[i].birthMonth == month &&
+            students[i].birthYear == year)
+        {
+            printf("\nNome: %s", students[i].name);
+            printf("\nMatricula: %d", students[i].studentId);
+            printf("\nSexo: %s", students[i].sex);
+            printf("\n-----------------------------------------------");
+            found = true;
+        }
+    }
+
+    if (!found)
+    {
+        printf("\nNenhum aluno encontrado com essa data.");
+    }
+
+    printf("\n");
 }

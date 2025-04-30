@@ -56,7 +56,7 @@ void updateStudent()
             {
                 printf("\n >> Digite o CPF do aluno: ");
                 fgets(cpf, sizeof(cpf), stdin);
-                cpf[strcspn(cpf, "\n")] = '\0'; //trocar o \n do final pelo \0
+                cpf[strcspn(cpf, "\n")] = '\0';
         
                 if (validateCpf(cpf) == 1)
                 {
