@@ -40,21 +40,33 @@ void deleteStudentById() //funcionando
         }
     }
 
-        if (found)
+    if (found)
+    {
+        for (int i = 0; i < students[position].enrolledSubjectsQnt; i++)
         {
-            for (int i = position; i < studentQnt - 1; i++) //aplicando o shift
+            for (int j = 0; j < subjectQnt ;j++)
             {
-                students[i] = students[i+1];
-            }
-            studentQnt--;
-            return;
+                if (students[position].enrolledSubjects[i] == subjects[j].subjectId)
+                {
+                    subjects[j].subjectEnrolledQnt--;
+                    students[position].enrolledSubjects[i] = -1;
+                }
+            }    
         }
         
-        if (!found)
+        for (int i = 0; i < studentQnt - 1; i++) //aplicando o shift
         {
-            printf("\n---------------------------------------------\n");
-            printf("\nAluno nao encontrado.");
-            printf("\n---------------------------------------------\n");
-            return;
+            students[i] = students[i+1];
         }
+        studentQnt--;
+        return;
+    }
+    
+    if (!found)
+    {
+        printf("\n---------------------------------------------\n");
+        printf("\nAluno nao encontrado.");
+        printf("\n---------------------------------------------\n");
+    }
 }
+

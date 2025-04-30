@@ -3,6 +3,8 @@
 #include "../teachers/teachers.h"
 #include "../students/students.h"
 #include "../validators/validators.h"
+#include <string.h>
+#include <stdio.h>
 
 //definindo o struct Subjects
 typedef struct
@@ -24,7 +26,7 @@ void enrollStudent(); //Inserir aluno em uma disciplina
 void unenrollStudent(); //Excluir aluno de uma disciplina
 void listAllSubjects(); //dados das disciplinas sem os alunos
 void listSubject(); // dados da disciplina e os alunos matriculados
-void listSubjectsWithMoreThan40Students(); // Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
-void listStudentEnrolledInLessThan3Subjects();
+void listLargeSubjects(); // Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
+void listUnderEnrolledStudents(); // Lista de alunos matriculados em menos de 3 disciplinas
 
 #endif

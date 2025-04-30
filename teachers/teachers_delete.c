@@ -18,6 +18,11 @@ void excluirProfessor(){
     for(int i = 0; i < teacherQnt; i++){
 
         if(teachers[i].teacherId == lId){
+            for (int j = 0; j < teachers[i].assignedSubjectsQnt; j++) 
+            {
+                teachers[i].assignedSubjects[j] = -1;
+            }
+
             for(int j = i; j < teacherQnt - 1; j++){
                 teachers[j] = teachers[j+1];
             }

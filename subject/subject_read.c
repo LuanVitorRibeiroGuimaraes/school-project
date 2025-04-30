@@ -1,5 +1,4 @@
 #include "subject.h"
-#include <stdio.h>
 
 void listAllSubjects()
 {
@@ -37,11 +36,13 @@ void listAllSubjects()
     
         printf("----------------------------------------------------------\n");
     }
+
+    return;
 }
 
 void listSubject()
 {
-    int i, findId, finded = 0;
+    int i, j, k, findId, pos, finded = 0, studentsFinded = 0;
     char subjectTeacher[100];
 
     if(subjectQnt == 0) printf("Nenhuma disciplina encontrada.");
@@ -51,7 +52,13 @@ void listSubject()
         do
         {
             printf("Digite o codigo da disciplina que deseja listar: ");
-            scanf("%d", findId);
+            findId = validateInt();
+
+            if (findId == -1)
+            {
+                printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente.\n");
+                continue;
+            }
 
             for(i = 0; i < teacherQnt; i++)
             {
@@ -67,21 +74,40 @@ void listSubject()
             {
                 if(subjects[i].subjectId == findId)
                 {
-                    printf("Disciplina: %s\tCodigo: %s\tSemestre: %d\tProf. %s", subjects[i].name, subjects[i].subjectId, subjects[i].subjectSemester, subjectTeacher);
-                    printf("---------------------------------------------------------------\n");
-                    printf("Aluno: %s | Matricula: %d"); //pendente
+                    pos = i;
                     finded = 1;
-                    break;
                 }
             }
+                
+            if(finded)
+            {
+                printf("Disciplina: %s\tCodigo: %s\tSemestre: %d\tProf. %s", subjects[pos].name, subjects[pos].subjectId, subjects[pos].subjectSemester, subjectTeacher);
+                printf("---------------------------------------------------------------\n"); 
+                printf("Aluno | Matricula");                   
+                for (j = 0; j < studentQnt; j++)
+                {
+                    for (k = 0; k < students[j].enrolledSubjectsQnt; k++)
+                    {
+                        if(students[j].enrolledSubjects[k] == findId)
+                        {
+                            printf("%s | %d\n", students[j].name, students[j].studentId);
+                            studentsFinded++;
+                        }
+                    }
+                    if(subjects[i].subjectEnrolledQnt == studentsFinded) break;
+                }
+                printf("---------------------------------------------------------------\n");
+            }
+            
     
             if(!finded) printf("Codigo nao encontrado. Tente novamente.");
         }while (!finded);
     }
-
+    
+    return;
 }
 
-void listStudentEnrolledInLessThan3Subjects()
+void listUnderEnrolledStudents()
 {
     int i, studentFinded = 0;
 
@@ -100,9 +126,10 @@ void listStudentEnrolledInLessThan3Subjects()
 
     printf("----------------------------------------------------------\n");
 
+    return;
 }
 
-void listSubjectsWithMoreThan40Students()
+void listLargeSubjects()
 {
     int i, j, k;
     char professor[100];
@@ -127,5 +154,7 @@ void listSubjectsWithMoreThan40Students()
     }
 
     printf("--------------------------------------------------- ------\n");
+
+    return;
 }
 
