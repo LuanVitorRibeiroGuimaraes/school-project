@@ -16,7 +16,7 @@ typedef struct
     int subjectEnrolledQnt;
 }Subject;
 
-Subject subjects[SIZE_SUBJECTS];
+extern Subject subjects[SIZE_SUBJECTS];
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
 extern int subjectQnt;

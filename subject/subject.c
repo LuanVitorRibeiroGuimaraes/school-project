@@ -1,6 +1,7 @@
 #include "subject.h"
 
 
+Subject subjects[SIZE_SUBJECTS];
 int subjectQnt = 0;
 
 void createSubject()
