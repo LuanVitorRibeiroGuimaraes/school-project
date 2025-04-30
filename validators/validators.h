@@ -13,13 +13,15 @@
 
 
 int validateCpf(char *cpf);
-void formatCpf(char cpf[]); //precisa implementar
+void formatCpf(char cpf[]); 
 void formatCpf();
-void validadebirthDate(char birthDate[10]); //precisa implementar
-int validateName(char name[]); //funcionando
-int validateTeacherId(int id); //funcionando
-int validateStudentId(int id); //funcionando
-int validateSex(char Sex); //funcionando
+void validadebirthDate(char birthDate[10]); 
+int validateName(char name[]); 
+int validateTeacherId(int id); 
+int validateStudentId(int id); 
+int validateSex(char Sex);
 int validateInt();
+int leapYear(int year);
+int validateData(int day, int month, int year);
 
 #endif
