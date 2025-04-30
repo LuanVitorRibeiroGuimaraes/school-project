@@ -1,6 +1,5 @@
 #include "students.h"
 
-
 void updateStudent()
 {
     if (studentQnt == 0)
@@ -12,9 +11,12 @@ void updateStudent()
     }
 
     int id;
+    int toFind;
+    int currentId;
     char name[100];
-    bool exist = true;
     int birthDate;
+    bool found = false;
+    bool currentStatus;
 
     printf("\n----------------------------------------------------\n");
     printf("Digite a matricula do aluno que deseja atualizar: ");
@@ -23,34 +25,47 @@ void updateStudent()
     printf("\n----------------------------------------------------\n");
     getchar();
 
+    toFind = id;
+
     for (int i = 0; i < studentQnt; i++)
     {
-        if (students[i].studentId == id && students[i].active)
+        currentId = students[i].studentId;
+        currentStatus = students[i].active;
+
+        if (toFind == currentId && currentStatus)
         {
-            exist = true;
+            found = true;
+
             while (true)
             {
                 printf("Digite o nome: ");
+                printf(">> ");
                 fgets(name, sizeof(name), stdin);
                 name[strcspn(name, "\n")] = '\0';
 
                 if (validateName(name) == 0)
+                {
                     break;
+                }
             }
 
-            printf("Digite a data de aiversario: ");
+            printf("\n >>Digite a data de aniversario (DDMMAAAA): ");
             scanf("%d", &birthDate);
+
+            printf("\n----------------------------------------------------\n");
+            printf("Aluno atualizado com sucesso!");
+            printf("\n---------------------------------------------------\n");
 
             strcpy(students[i].name, name);
             students[i].birthDate = birthDate;
-        }
-        break;
-
-        if (!exist)
-        {
-            printf("\n----------------------------------------------------\n");
-            printf("Nao existe aluno com essa matricula!");
-            printf("\n---------------------------------------------------\n");
+            break;
         }
     }
+
+    if (!found)
+        {
+            printf("\n----------------------------------------------------\n");
+            printf("Aluno nao encontrado!");
+            printf("\n---------------------------------------------------\n");
+        }
 }

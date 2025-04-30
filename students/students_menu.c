@@ -248,8 +248,3 @@ void studentMenu()
     }
     while (menuOption != 0);
 }
-
-int main()
-{
-    studentMenu();
-}

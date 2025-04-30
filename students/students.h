@@ -20,7 +20,7 @@ typedef struct
     char name[50];
     char sex;
     int birthDate;
-    char *cpf;
+    char cpf[15];
     bool active;
     int enrolledSubjects[MAX_SUBJECTS];
     int enrolledSubjectsQnt;

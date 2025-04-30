@@ -1,6 +1,6 @@
 #include "students.h"
 
-void testReadFunctionsMenu()
+void testFunctionsMenu()
 {
     int menuOption;
 
@@ -27,7 +27,7 @@ void testReadFunctionsMenu()
                 break;
 
             case 1:
-                createStudent();
+                createStudent(); //funcionando
                 break;
 
             case 2:
@@ -41,12 +41,12 @@ void testReadFunctionsMenu()
             }
 
             case 4:
-                listStudentsByLetter();
+                listStudentsByLetter(); //funcionando
                 break;
 
             case 5:
             {
-                listStudentsBySex();
+                listStudentsBySex(); //funcionando
                 break;
             }
 
@@ -56,7 +56,7 @@ void testReadFunctionsMenu()
                 break;
 
             case 7:
-                deleteStudentById();
+                deleteStudentById(); //funcionando
                 break;
 
             case 8:
@@ -72,5 +72,5 @@ void testReadFunctionsMenu()
 
 int main()
 {
-    testReadFunctionsMenu();
+    testFunctionsMenu();
 }
