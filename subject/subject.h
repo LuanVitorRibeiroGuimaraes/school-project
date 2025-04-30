@@ -5,6 +5,7 @@
 #include "../validators/validators.h"
 #include <string.h>
 #include <stdio.h>
+#define SIZE_SUBJECTS 40
 
 //definindo o struct Subjects
 typedef struct
@@ -14,6 +15,8 @@ typedef struct
     int subjectSemester;
     int subjectEnrolledQnt;
 }Subject;
+
+Subject subjects[SIZE_SUBJECTS];
 
 //extern -> informa que a variável ou vetor foi criado e implementado em algum lugar
 extern int subjectQnt;
