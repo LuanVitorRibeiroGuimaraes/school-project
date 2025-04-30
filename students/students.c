@@ -8,7 +8,9 @@ void createStudent() //adicionar verificar se campo está vazio ou não
 
     if (studentQnt == SIZE_STUDENTS)
     {
-        printf("\nNao e possivel cadastrar mais alunos!\n");
+        printf("\n-------------------------------------");
+        printf("\nNao e possivel cadastrar mais alunos!");
+        printf("\n-------------------------------------");
         return;
     }
 
@@ -22,26 +24,30 @@ void createStudent() //adicionar verificar se campo está vazio ou não
 
     char buffer[100];
 
-    printf("\n >>Digite a data de aniversario (DDMMAAAA): ");
+    printf("\n >> Digite a data de aniversario (DDMMAAAA): ");
     scanf("%d", &birthDate);
     getchar();
 
     while (true)
     {
-        printf("\n >>Digite o CPF do aluno: ");
+        printf("\n >> Digite o CPF do aluno: ");
         fgets(cpf, sizeof(cpf), stdin);
         cpf[strcspn(cpf, "\n")] = '\0'; //trocar o \n do final pelo \0
 
         if (validateCpf(cpf))
             break;
         else
-            printf("\nCpf invalido! Tente novamente!\n");
+        {
+            printf("\n------------------------------");
+            printf("\nCpf invalido! Tente novamente!");
+            printf("\n------------------------------");
+        }
     }
 
     while (true)
     {
 
-        printf("\n >>Digite a matricula do aluno: ");
+        printf("\n >> Digite a matricula do aluno: ");
         fgets(buffer, sizeof(buffer), stdin);
 
         if (sscanf(buffer, "%d", &studentId) != 1 || studentId <= 0)
@@ -57,14 +63,14 @@ void createStudent() //adicionar verificar se campo está vazio ou não
     }
     
 
-    printf("\n >>Digite o nome do aluno: ");
+    printf("\n >> Digite o nome do aluno: ");
     fgets(name, sizeof(name), stdin);
     name[strcspn(name, "\n")] = '\0'; //trocar o \n do final pelo \0
     toUpperCase(name);
 
     while (true)
     {
-        printf("\n >>Digite o sexo do aluno (F ou M): ");
+        printf("\n >> Digite o sexo do aluno (F ou M): ");
         scanf(" %c", &sex);
 
         if (validateSex(sex) == 0)

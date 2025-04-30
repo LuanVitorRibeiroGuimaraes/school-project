@@ -106,10 +106,12 @@ void studentMenu()
 
                 do
                 {
-                    printf("\nSelecione uma opcao abaixo:\n");
-                    printf("0 - Voltar\n");
-                    printf("1 - Listar alunos por letra\n");
+                    printf("\n---------------------------");
+                    printf("\nSelecione uma opcao abaixo:");
+                    printf("\n0 - Voltar");
+                    printf("\n1 - Listar alunos por letra");
                     printf("\n>> ");
+                    printf("\n---------------------------");
                     scanf("%d", &option);
                 }
                 while (option != 0 && option != 1);
