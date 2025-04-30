@@ -34,7 +34,9 @@ int validateData(int day, int month, int year)
             return 1;
         }
 
-        printf("\nData invalida!\n");
+        printf("\n------------------");
+        printf("\n[!] Data invalida.");
+        printf("\n------------------");
         return 0;
     }
 
@@ -44,12 +46,15 @@ int validateData(int day, int month, int year)
         {
             return 1;
         }
-        
-        printf("\nData invalida!\n");
+        printf("\n------------------");
+        printf("\n[!] Data invalida.");
+        printf("\n------------------");
         return 0;
     }
 
-    printf("\nData inválida\n");
+    printf("\n------------------");
+    printf("\n[!] Data inválida.");
+    printf("\n------------------");
     return 0;
 
 }

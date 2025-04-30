@@ -5,9 +5,9 @@ int validateSex(char Sex)
 
     if (Sex != 'M' && Sex != 'F')
     {
-        printf("\n--------------------------");
-        printf("\nDigite Somente 'M' ou 'F'.");
-        printf("\n--------------------------\n");
+        printf("\n------------------------------");
+        printf("\n[!] Digite Somente 'M' ou 'F'.");
+        printf("\n------------------------------");
         return 1;
     }
 

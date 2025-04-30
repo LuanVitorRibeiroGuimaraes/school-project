@@ -7,12 +7,14 @@ void enrollStudent()
 
     do
     {
-        printf("Digite o codigo da disciplina: ");
+        printf("\n >> Digite o codigo da disciplina: ");
         findSubjectId = validateInt();
 
         if (findStudentId == -1)
         {
-            printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente\n");
+            printf("\n------------------------------------------------------------------------");
+            printf("\n[!] Codigo da Disciplina Precisa Ser um Numero Inteiro. Tente Novamente.");
+            printf("\n------------------------------------------------------------------------");
             continue;
         }
 
@@ -20,15 +22,17 @@ void enrollStudent()
         {
             if(subjects[i].subjectId == findSubjectId)
             {
-                printf("Matricular aluno na Disciplina: %s\n", subjects[i].name);
+                printf("\n >> Matricular Aluno na Disciplina: %s", subjects[i].name);
                 do
                 {
-                    printf("Digite a matricula do estudante para registrar na disciplina: ");
+                    printf("\n >> Digite a Matricula do Estudante Para Registrar na Disciplina: ");
                     findStudentId = validateInt();
 
                     if (findStudentId == -1)
                     {
-                        printf("Matricula do estudante precisa ser um numero inteiro. Tente novamente\n");
+                        printf("\n-------------------------------------------------------------------------");
+                        printf("\n[!] Matricula do Estudante Precisa Ser um Numero Inteiro. Tente Novamente");
+                        printf("\n-------------------------------------------------------------------------");
                         continue;
                     }
 
@@ -40,18 +44,28 @@ void enrollStudent()
                             students[j].enrolledSubjectsQnt++;
                             subjects[i].subjectEnrolledQnt++;
                             findedStudent = 1;
-                            printf("Aluno matriculado com sucesso!");                         
+                            printf("\n------------------------------");
+                            printf("\nAluno Matriculado Com Sucesso!");
+                            printf("\n------------------------------");
                         }
                     }
 
-                    if(!findedStudent) printf("Matricula de aluno nao encontrado. Tente novamente.\n");
+                    if(!findedStudent){
+                        printf("\n-------------------------------------------------------");
+                        printf("\n[!] Matricula de Aluno Nao Encontrado. Tente Novamente.");
+                        printf("\n-------------------------------------------------------");
+                    } 
                 } while (!findedStudent);
                 
                 findedSubject = 1;
             }
         }
 
-        if(!findedSubject) printf("Disciplina nao encontrada. Tente novamente.\n");
+        if(!findedSubject){
+            printf("\n-----------------------------------------------");
+            printf("\n[!] Disciplina Nao Encontrada. Tente Novamente.");
+            printf("\n-----------------------------------------------");
+        } 
     } while (!findedSubject);
     
     return;
@@ -64,12 +78,14 @@ void unenrollStudent()
 
     do
     {
-        printf("Digite a matricula do estudante para remover de uma disciplina: ");
+        printf("\n >> Digite a Matricula do Estudante Para Remover de Uma Disciplina: ");
         findStudentId = validateInt();
 
         if (findStudentId == -1)
         {
-            printf("Matricula do estudante precisa ser um numero inteiro. Tente novamente\n");
+            printf("\n--------------------------------------------------------------------------");
+            printf("\n[!] Matricula do Estudante Precisa Ser um Numero Inteiro. Tente Novamente.");
+            printf("\n--------------------------------------------------------------------------");
             continue;
         }
 
@@ -85,14 +101,17 @@ void unenrollStudent()
         {
             if(students[studentPosition].enrolledSubjectsQnt == 0)
             {
-                printf("Matriculas nao encontradas para esse estudante. Tente novamente\n");
+                printf("\n--------------------------------------------------------------------");
+                printf("\n[!] Matriculas Nao Encontradas Para Esse Estudante. Tente Novamente.");
+                printf("\n--------------------------------------------------------------------"); 
                 findedStudent = 0;
                 continue;
             }
 
             else
                 {
-                    printf("Estudante matriculado nas seguintes disciplinas:\n");
+                    printf("\n------------------------------------------------");
+                    printf("\nEstudante matriculado nas seguintes disciplinas:\n");
                     for (i = 0; i < students[studentPosition].enrolledSubjectsQnt; i++)
                     {
                         for(j = 0; j < subjectQnt; j++)
@@ -104,15 +123,18 @@ void unenrollStudent()
                         }
                         
                     }
+                    printf("\n------------------------------------------------");
                     
                     do
                     {
-                        printf("Digite o codigo da disciplina para desmatricular: ");
+                        printf("\n >> Digite o Codigo da Disciplina Para Desmatricular: ");
                         findSubjectId = validateInt();
 
                         if (findStudentId == -1)
                         {
-                            printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente\n");
+                            printf("\n------------------------------------------------------------------------");
+                            printf("\n[!] Codigo da Disciplina Precisa Ser um Numero Inteiro. Tente Novamente.");
+                            printf("\n------------------------------------------------------------------------");
                             continue;
                         }
 
@@ -131,16 +153,25 @@ void unenrollStudent()
                                 students[studentPosition].enrolledSubjects[i] = students[studentPosition].enrolledSubjects[i+1];
                                 students[studentPosition].enrolledSubjectsQnt--;       
                             }
-
-                            printf("Aluno desmatriculado com sucesso.");
+                            printf("\n---------------------------------");
+                            printf("\nAluno desmatriculado com sucesso.");
+                            printf("\n---------------------------------");
                         }
 
-                        else printf("Codigo incorreto. Tente novamente.\n");
+                        else{
+                            printf("\n--------------------------------------");
+                            printf("\n[!] Codigo Incorreto. Tente Novamente.");
+                            printf("\n--------------------------------------");
+                        } 
                     } while (!findedSubject);
                 }
         }
 
-        if(!findedStudent) printf("Aluno nao encontrado. Tente novamente.\n");
+        if(!findedStudent){
+            printf("\n------------------------------------------");
+            printf("\n[!] Aluno Nao Encontrado. Tente Novamente.");
+            printf("\n------------------------------------------");
+        } 
         
     } while (!findedStudent);
 

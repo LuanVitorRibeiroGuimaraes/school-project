@@ -11,11 +11,11 @@ bool isEmpityTeacher()
 {
     if (teacherQnt == 0)
     {
-        printf("----------------------------\n");
-        printf("Nenhum Professor Cadastrado.\n");
-        printf("----------------------------\n");
-        printf("Deseja Voltar ao Menu de Professores? (y/n)\n");
-        printf(">> ");
+        printf("\n--------------------------------");
+        printf("\n[!] Nenhum Professor Cadastrado.");
+        printf("\n--------------------------------");
+        printf("\nDeseja Voltar ao Menu de Professores? (y/n)");
+        printf("\n>> ");
         char lResposta;
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%c", &lResposta);
@@ -25,7 +25,7 @@ bool isEmpityTeacher()
         }
         else
         {
-            printf("\nFim do programa!\n");
+            printf("\n\nFim do programa!\n\n");
             exit(0);
         }
     }
@@ -56,8 +56,8 @@ void listTeachers()
 
 void listTeachersById()
 {
-    printf("Digite a matricula do professor que deseja buscar: \n");
-    printf(">> ");
+    printf("\nDigite a matricula do professor que deseja buscar:");
+    printf("\n>> ");
     int lId;
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%d", &lId);
@@ -74,17 +74,17 @@ void listTeachersById()
         }
         else
         {
-            printf("\n--------------------------------------------");
-            printf("\nProfessor nao existe ou matricula incorreta.");
-            printf("\n--------------------------------------------");
+            printf("\n------------------------------------------------");
+            printf("\n[!] Professor nao existe ou matricula incorreta.");
+            printf("\n------------------------------------------------");
         }
     }
 }
 
 void listTeachersByName()
 {
-    printf("Digite o nome do professor que deseja buscar: \n");
-    printf(">> ");
+    printf("\nDigite o nome do professor que deseja buscar:");
+    printf("\n>> ");
     char lName[100];
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%s", &lName);
@@ -106,16 +106,16 @@ void listTeachersByName()
     }
     if (lCont == 0)
     {
-        printf("\n--------------------");
-        printf("\nNome nao encontrado.");
-        printf("\n--------------------");
+        printf("\n------------------------");
+        printf("\n[!] Nome nao encontrado.");
+        printf("\n------------------------");
     }
 }
 
 void listTeachersBySex()
 {
-    printf("Digite o sexo (F/M) dos professores que deseja buscar: \n");
-    printf(">> ");
+    printf("\nDigite o sexo (F/M) dos professores que deseja buscar:");
+    printf("\n>> ");
     char lSexo;
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%c", &lSexo);
@@ -135,16 +135,16 @@ void listTeachersBySex()
     }
     if (lCont == 0)
     {
-        printf("\n-------------------------------");
-        printf("\nNenhum professor com esse sexo.");
-        printf("\n-------------------------------");
+        printf("\n-----------------------------------");
+        printf("\n[!] Nenhum professor com esse sexo.");
+        printf("\n-----------------------------------");
     }
 }
 
 void listTeachersBybirthDate()
 {
-    printf("Digite a data de aniversario (DDMMAAAA) do professor que deseja buscar: \n");
-    printf(">> ");
+    printf("\nDigite a data de aniversario (DDMMAAAA) do professor que deseja buscar:");
+    printf("\n>> ");
     int lDataAniversario;
     fgets(buffer, sizeof(buffer), stdin);
     scanf(buffer, "%d", &lDataAniversario);
@@ -164,8 +164,8 @@ void listTeachersBybirthDate()
     }
     if (lCont == 0)
     {
-        printf("\n----------------------------------------------");
-        printf("\nNenhum professor com essa data de aniversario.");
-        printf("\n----------------------------------------------");
+        printf("\n--------------------------------------------------");
+        printf("\n[!] Nenhum Professor Com Essa Data de Aniversario.");
+        printf("\n--------------------------------------------------");
     }
 }

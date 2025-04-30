@@ -23,11 +23,11 @@ void updateTeacher()
             char lName[100];
             char lSex;
             int lBirthDate;
-            long lCpf;
+            char lCpf[15];
 
             while (1)
             {
-                printf("\n >>Digite o novo nome do professor: ");
+                printf("\n >> Digite o novo nome do professor: ");
                 fgets(buffer, sizeof(buffer), stdin);
                 sscanf(buffer, "%s", &lName);
                 if (validateName(lName) == 1)
@@ -40,7 +40,7 @@ void updateTeacher()
 
             while (1)
             {
-                printf("\n >>Digite o novo sexo do professor: ");
+                printf("\n >> Digite o novo sexo do professor: ");
                 fgets(buffer, sizeof(buffer), stdin);
                 sscanf(buffer, "%c", &lSex);
                 lSex = toupper(lSex);
@@ -52,7 +52,7 @@ void updateTeacher()
                 break;
             }
 
-            printf("\n >>Digite a nova data de aniversario (DDMMAAAA) do professor: ");
+            printf("\n >> Digite a nova data de aniversario (DDMMAAAA) do professor: ");
             fgets(buffer, sizeof(buffer), stdin);
             sscanf(buffer, "%d", &lBirthDate);
             //! VALIDAR DATA DE ANIVERSARIO
@@ -61,7 +61,7 @@ void updateTeacher()
 
             while (1)
             {
-                printf("\n >>Digite o novo CPF do professor: ");
+                printf("\n >> Digite o novo CPF do professor (Somente Numeros): ");
                 fgets(buffer, sizeof(buffer), stdin);
                 sscanf(buffer, "%s", &lCpf);
                 if (validateCpf(lCpf) == 0)
@@ -78,8 +78,8 @@ void updateTeacher()
             return;
         }
     }
-    printf("\n-------------------------------------------------");
-    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.");
-    printf("\n-------------------------------------------------");
+    printf("\n-----------------------------------------------------");
+    printf("\n[!] Matricula Incorreta, Por Favor, Digite Novamente.");
+    printf("\n-----------------------------------------------------");
     return;
 }

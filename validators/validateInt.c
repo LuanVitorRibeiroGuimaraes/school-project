@@ -9,8 +9,8 @@ int validateInt()
     scanfResult = scanf("%d", &value);
     if (scanfResult != 1)
     {
-        while ((c = getchar()) != '\n' && c != EOF) { } //Limpar o buffer 
-        return -1; // Retorna -1 para indicar entrada inválida
+        while ((c = getchar()) != '\n' && c != EOF) { } 
+        return -1; 
     }
 
     return value;

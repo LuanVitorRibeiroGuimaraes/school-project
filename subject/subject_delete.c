@@ -9,16 +9,17 @@ deleteSubject()
     {
         listAllSubjects();
         printf(
-            "\n---------------- EXCLUIR DISCIPLINA ----------------\n"
-            "Digite o codigo da disciplina que deseja excluir:\n"
-            "----------------------------------------------------\n"
-            "\n>>"
+            "\n----------------- EXCLUIR DISCIPLINA ----------------"
+            "\n >> Digite o codigo da disciplina que deseja excluir:"
+            "\n-----------------------------------------------------"
         );
         findSubjectId = validateInt();
         
         if(findSubjectId == -1)
         {
-            printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente.\n");
+            printf("\n------------------------------------------------------------------------");
+            printf("\n[!] Codigo da Disciplina Precisa Ser um Numero Inteiro. Tente Novamente.");
+            printf("\n------------------------------------------------------------------------");
             continue;
         }
 
@@ -28,7 +29,9 @@ deleteSubject()
             {
                 pos = i;
                 subjectFinded = 1;
-                printf("Disciplina %s excluida com sucesso!\n", subjects[i].name);
+                printf("\n-------------------------------------------");
+                printf("\nDisciplina: %s excluida com sucesso!", subjects[i].name);
+                printf("\n-------------------------------------------");
             }
         }
     
@@ -76,8 +79,12 @@ deleteSubject()
 
             return;          
         }
-
-        if(!subjectFinded) printf("Disciplina nao encontrada. Tente novamente.\n");
+                           
+        if(!subjectFinded){
+            printf("\n-------------------------------------------");
+            printf("\nDisciplina Nao Encontrada. Tente Novamente.");
+            printf("\n-------------------------------------------");
+        }   
     } while (!subjectFinded);
     
 }

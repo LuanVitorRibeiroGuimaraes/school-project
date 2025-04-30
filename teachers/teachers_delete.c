@@ -33,9 +33,9 @@ void excluirProfessor(){
             return;
         }
     }
-    printf("\n-------------------------------------------------");
-    printf("\nMatricula Incorreta, Por Favor, Digite Novamente.");
-    printf("\n-------------------------------------------------");
+    printf("\n-----------------------------------------------------");
+    printf("\n[!] Matricula Incorreta, Por Favor, Digite Novamente.");
+    printf("\n-----------------------------------------------------");
     continue;
     }
 }

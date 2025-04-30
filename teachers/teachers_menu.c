@@ -27,9 +27,9 @@ void teachersMenu()
         switch (resposta)
         {
         default:
-            printf("\n---------------------------------");
-            printf("\nSelecione uma das opcoes validas!");
-            printf("\n---------------------------------");
+            printf("\n-------------------------------------");
+            printf("\n[!] Selecione uma das opcoes validas!");
+            printf("\n-------------------------------------");
             break;
 
         case 1:

@@ -8,7 +8,6 @@ void subjectMainMenu()
 	{
 		printf(
 			"\n---------------- MENU DISCIPLINA ----------------\n"
-			"Selecione uma opcao abaixo:\n"
 			"0 - Voltar\n"
 			"1 - Cadastrar Disciplina\n"
 			"2 - Matricular ou Desmatricular estudante em uma Disciplina\n"
@@ -36,7 +35,7 @@ void subjectMainMenu()
 				break;
 			
 			default:
-				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 3 sao aceitos.\n");
+				printf("\n[!] Opcao Invalida. Apenas Numeros Inteiros Entre 0 e 3 Sao Aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
 				getchar();
@@ -53,7 +52,6 @@ void subjectRegisterMenu()
 	{
 		printf(
 			"\n---------------- CADASTRO DISCIPLINA ----------------\n"
-			"Selecione uma opcao abaixo:\n"
 			"0 - Voltar\n"
 			"1 - Incluir Disciplina\n"
 			"2 - Excluir Disciplina\n"
@@ -81,8 +79,8 @@ void subjectRegisterMenu()
 				break;
 	
 			default:
-				printf("Opcao precisa ser um valor inteiro entre 0 e 3. Tente novamente.\n");
-				printf("\nPressione Enter para continuar..."); 
+				printf("\n[!] Opcao Precisa Ser um Valor Inteiro Entre 0 e 3. Tente Novamente.\n");
+				printf("\nPressione Enter Para Continuar..."); 
 				getchar();
 				getchar();
 		}	
@@ -98,7 +96,6 @@ void subjectEnrollmentMenu()
 	{
 		printf(
 			"\n---------------- MATRICULA DISCIPLINA ----------------\n"
-			"Selecione uma opcao abaixo:\n"
 			"0 - Voltar\n"
 			"1 - Matricular Estudante\n"
 			"2 - Desmatricular Estudante\n"
@@ -121,7 +118,7 @@ void subjectEnrollmentMenu()
 				break;
 	
 			default:
-				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 2 sao aceitos.\n");
+				printf("\n[!] Opcao Invalida. Apenas numeros inteiros entre 0 e 2 sao aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
 				getchar();
@@ -138,7 +135,6 @@ void subjectListingMenu()
 	{
 		printf(
 			"\n---------------- LISTAGENS DISCIPLINA ----------------\n"
-			"Selecione uma opcao abaixo:\n"
 			"0 - Voltar\n"
 			"1 - Listar Disciplinas (dados da disciplina sem os alunos)\n"
 			"2 - Listar uma disciplina (dados da disciplina e os alunos matriculados)\n"
@@ -171,7 +167,7 @@ void subjectListingMenu()
 				break;
 	
 			default:
-				printf("Opcao invalida. Apenas numeros inteiros entre 0 e 4 sao aceitos.\n");
+				printf("\n[!] Opcao Invalida. Apenas Numeros Inteiros Entre 0 e 4 Sao Aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
 				getchar();

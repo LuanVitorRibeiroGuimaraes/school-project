@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #include "teachers.h"
-#include <string.h>
 #include "../validators/validators.h"
 
 #define SIZE_PROFESSORES 100
 
-teacherQnt = 0;
+int teacherQnt = 0;
 Teacher teachers[SIZE_PROFESSORES];
 
 void createTeacher()
@@ -21,9 +21,9 @@ void createTeacher()
 
     if (teacherQnt == SIZE_PROFESSORES)
     {
-        printf("\n-------------------------------------------");
-        printf("\nNao eh possivel cadastrar mais professores!");
-        printf("\n-------------------------------------------");
+        printf("\n-----------------------------------------------");
+        printf("\n[!] Nao eh possivel cadastrar mais professores!");
+        printf("\n-----------------------------------------------");
         return;
     }
 
@@ -31,15 +31,15 @@ void createTeacher()
 
     while (1)
     {
-        printf("\n >>Digite a matricula do professor: ");
+        printf("\n >> Digite a matricula do professor: ");
         fgets(buffer, sizeof(buffer), stdin);
 
         //* VALIDA SE O USUARIO DIGITOU UM NUMERO!
         if (sscanf(buffer, "%d", &teacherId) != 1 || teacherId <= 0)
         {
-            printf("\n----------------------------------------");
-            printf("\nDigite Somente Numeros Maiores Que Zero!");
-            printf("\n----------------------------------------");
+            printf("\n--------------------------------------------");
+            printf("\n[!] Digite Somente Numeros Maiores Que Zero!");
+            printf("\n--------------------------------------------");
             continue;
         }
         if (validateTeacherId(teacherId) == 1)
@@ -51,7 +51,7 @@ void createTeacher()
 
     while (1)
     {
-        printf("\n >>Digite o nome do professor: ");
+        printf("\n >> Digite o nome do professor: ");
         fgets(name, sizeof(name), stdin);
         name[strcspn(name, "\n")] = '\0';
         if (validateName(name) == 1)
@@ -63,7 +63,7 @@ void createTeacher()
 
     while (1)
     {
-        printf("\n >>Digite o sexo do professor (F ou M): ");
+        printf("\n >> Digite o sexo do professor (F ou M): ");
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%c", &sex);
         sex = toupper(sex);
@@ -74,14 +74,14 @@ void createTeacher()
         break;
     }
 
-    printf("\n >>Digite a data de aiversario (DDMMAAAA): ");
+    printf("\n >> Digite a data de aiversario (DDMMAAAA): ");
     fgets(buffer, sizeof(buffer), stdin);
     sscanf(buffer, "%d", &birthDate);
     //! VALIDAR DATA DE ANIVERSARIO
 
     while (1)
     {
-        printf("\n >>Digite o CPF do professor: ");
+        printf("\n >> Digite o CPF do professor (Somente Numeros): ");
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%s", &cpf);
         if(validateCpf(cpf) == 0){
