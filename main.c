@@ -5,56 +5,57 @@
 
 int main()
 {
-    int resposta;
-    char buffer[100];
-
-    printf("\n---------------------MENU PRINCIPAL---------------------");
-    printf("\nSeja Bem Vindo ao Projeto Escola!");
-    printf("\n1 - Menu Alunos.");
-    printf("\n2 - Menu Professores.");
-    printf("\n3 - Menu Disciplinas.");
-    printf("\n4 - Aniversariantes do Mes.");
-    printf("\n5 - Encerrar Programa.");
-    printf("\n--------------------------------------------------------");
-
-    printf("\n>> ");
-    fgets(buffer, sizeof(buffer), stdin);
-    sscanf(buffer, "%d", &resposta);
-
-    switch (resposta)
+    while (true)
     {
-    default:
-        printf("\n-------------------------------------");
-        printf("\n[!] Selecione Uma Das Opcoes Validas!");
-        printf("\n-------------------------------------");
-        break;
+        int resposta;
+        char buffer[100];
 
-    case 1:
+        printf("\n---------------------MENU PRINCIPAL---------------------");
+        printf("\nSeja Bem Vindo ao Projeto Escola!");
+        printf("\n1 - Menu Alunos.");
+        printf("\n2 - Menu Professores.");
+        printf("\n3 - Menu Disciplinas.");
+        printf("\n4 - Aniversariantes do Mes.");
+        printf("\n5 - Encerrar Programa.");
+        printf("\n--------------------------------------------------------");
 
-        studentMenu();
-        break;
+        printf("\n>> ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%d", &resposta);
 
-    case 2:
+        switch (resposta)
+        {
+        default:
+            printf("\n-------------------------------------");
+            printf("\n[!] Selecione Uma Das Opcoes Validas!");
+            printf("\n-------------------------------------");
+            break;
 
-        teachersMenu();
-        break;
+        case 1:
 
-    case 3:
+            studentMenu();
+            break;
 
-        subjectMainMenu();
-        break;
+        case 2:
 
-    case 4:
+            teachersMenu();
+            break;
 
-        //! FAZER
-        break;
+        case 3:
 
-    case 5:
+            subjectMainMenu();
+            break;
 
-        printf("\n[!][!] Encerrando o Programa...");
-        exit(0);
-        break;
+        case 4:
+
+            //! FAZER
+            break;
+
+        case 5:
+
+            printf("\n[!][!] Encerrando o Programa...");
+            exit(0);
+            break;
+        }
     }
-
-    return 0;
 }
