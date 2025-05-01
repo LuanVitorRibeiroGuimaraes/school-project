@@ -13,21 +13,25 @@ void createSubject()
     
 	if (subjectQnt == SIZE_SUBJECTS)
 	{
-		printf("Nao e possivel cadastrar mais disciplinas");
+		printf("\n------------------------------------------");
+		printf("\nNao Eh Possivel Cadastrar Mais Disciplinas");
+		printf("\n------------------------------------------");
 	}
 	
-	printf("Digite o nome da disciplina: ");
+	printf("\n >> Digite o Nome da Disciplina: ");
 	fgets(name, sizeof(name), stdin);
 	name[strcspn(name, "\n")] = '\0';
 	
 	do
 	{
-		printf("Digite o codigo da disciplina: ");
+		printf("\n >> Digite o codigo da disciplina: ");
 		subjectId = validateInt();
 
 		if (subjectId == -1)
 		{
-			printf("Codigo so pode ser um numero inteiro. Tente novamente.\n");
+			printf("\n------------------------------------------------------");
+			printf("\nCodigo So Pode Ser Um Numero Inteiro. Tente Novamente.");
+			printf("\n------------------------------------------------------");
 			continue;
 		}
 
@@ -35,7 +39,9 @@ void createSubject()
 		{
 			if(subjects[i].subjectId == subjectId)
 			{
-				printf("Codigo ja cadastrado em outra disciplina. Tente novamente.\n");
+				printf("\n--------------------------------------------------------------");
+				printf("\n[!] Codigo Ja Cadastrado Em Outra Disciplina. Tente Novamente.");
+				printf("\n--------------------------------------------------------------");
 				notFindedSubjectId = 1;
 			}
 		}
@@ -44,10 +50,14 @@ void createSubject()
 	
 	do
 	{
-		printf("Digite o semestre da disciplina: ");
+		printf("\n >> Digite o Semestre da Disciplina: ");
 		subjectSemester = validateInt();
 	
-		if (subjectSemester == -1)	printf("Codigo so pode ser um numero inteiro. Tente novamente.\n");
+		if (subjectSemester == -1){
+			printf("\n----------------------------------------------------------");
+			printf("\n[!] Codigo So Pode Ser Um Numero Inteiro. Tente Novamente.");
+			printf("\n----------------------------------------------------------");
+		}	
 	} while (subjectSemester == -1);
 	
 
@@ -57,9 +67,9 @@ void createSubject()
 		do
 		{
 			printf(
-				"Deseja cadastrar um professor para a disciplina?\n"
-				"0 - Nao\n"
-				"1 - Sim\n"
+				"\n >> Deseja Cadastrar Um Professor Para a Disciplina?"
+				"\n0 - Nao"
+				"\n1 - Sim"
 			);
 			registerTeacher = validateInt();
 	
@@ -69,8 +79,8 @@ void createSubject()
 					break;
 	
 				case 1:
-					printf("Digite a matricula do professor que vai ministrar a disciplina: ");
-					scanf("%d", &findId);
+					printf("\n >> Digite a Matricula Do Professor Que Vai Ministrar a Disciplina: ");
+					scanf("\n%d", &findId);
 					
 					for(i = 0; i < teacherQnt; i++) 
 					{
@@ -83,13 +93,19 @@ void createSubject()
 								findedTeacher = 1;
 								break;
 							}
-						if(!findedTeacher) printf("Professor nao encontrado. Tente novamente.\n");
+						if(!findedTeacher){
+							printf("\n----------------------------------------------");
+							printf("\n[!] Professor Nao Encontrado. Tente Novamente.");
+							printf("\n----------------------------------------------");
+						} 
 						}while(!findedTeacher);
 					}
 					break;
 	
 				default:
-					printf("Opcao invalida. Tente novamente.\n");
+					printf("\n------------------------------------");
+					printf("\n[!] Opcao Invalida. Tente Novamente.");
+					printf("\n------------------------------------");
 			}	
 		} while (registerTeacher != 0 && registerTeacher != 1);
 	}
@@ -101,7 +117,9 @@ void createSubject()
     
 	subjectQnt ++;
 
-    printf("Disciplina cadastrada com sucesso!\n");
+	printf("\n----------------------------------");
+    printf("\nDisciplina cadastrada com sucesso!");
+	printf("\n----------------------------------");
 	
 	return;
 }

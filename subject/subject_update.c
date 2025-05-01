@@ -8,12 +8,14 @@ void updateSubject()
 	do
 	{
 		listAllSubjects();
-		printf("Digite o codigo da disciplina que deseja atualizar: ");
+		printf("\n >> Digite o Codigo da Disciplina Que Deseja Atualizar: ");
 		findId = validateInt();
 
 		if (findId == -1)
 		{
-			printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente.\n");
+			printf("\n------------------------------------------------------------------------");
+			printf("\n[!] Codigo da Disciplina Precisa Ser um Numero Inteiro. Tente Novamente.");
+			printf("\n------------------------------------------------------------------------");
 			continue;
 		}
 		
@@ -27,20 +29,23 @@ void updateSubject()
 			}
 		}
 		
-		if(!finded) printf("Disciplina nao encontrada tente novamente.\n");
+		if(!finded){
+			printf("\n-----------------------------------------------");
+			printf("\n[!] Disciplina Nao Encontrada. Tente Novamente.");
+			printf("\n-----------------------------------------------");
+		} 
 	}while(!finded);
 	
 	while(1)
 	{
-		printf("Atualizando a Disciplina: %s\n\n", subjects[updatePos].name);
+		printf("\nAtualizando a Disciplina: %s\n\n", subjects[updatePos].name);
 		printf(
-			"Selecione qual campo deseja alterar: \n"
 			"0 - Voltar\n"
 			"1 - Nome da Disciplina\n"
 			"2 - Codigo da Disciplina\n"
 			"3 - Semestre da Disciplina\n"
-			"4 - Professor que vai ministrar a disciplina\n"
-			"\n>> "
+			"4 - Professor Que Vai Ministrar a Disciplina\n"
+			">> "
 			
 		);
 		option = validateInt();
@@ -51,21 +56,27 @@ void updateSubject()
 				return;
 
 			case 1:
-				printf("Digite o novo nome da disciplina: ");
+				printf("\n >> Digite o Novo Nome da Disciplina: ");
 				fgets(subjects[updatePos].name, sizeof(subjects[updatePos]), stdin);
-				printf("Nome da disciplina atualizado com sucesso!\n");
+				printf("\n-------------------------------------------");
+				printf("\n Nome da Disciplina Atualizado Com Sucesso!");
+				printf("\n-------------------------------------------");
 				break;
 			
 			case 2:
-				printf("Digite o novo codigo da disciplina: ");
+				printf("\n >> Digite o Novo Codigo da Disciplina: ");
 				scanf("%d", &subjects[updatePos].subjectId);
-				printf("Codigo da disciplina atualizado com sucesso!\n");
+				printf("\n--------------------------------------------");
+				printf("\nCodigo da Disciplina Atualizado Com Sucesso!");
+				printf("\n--------------------------------------------");
 				break;
 			
 			case 3:
-				printf("Digite o novo semestre da disciplina: ");
+				printf("\n >> Digite o Novo Semestre da Disciplina: ");
 				scanf("%d", &subjects[updatePos].subjectSemester);
-				printf("Semestre da disciplina atualizado com sucesso!\n");
+				printf("\n----------------------------------------------");
+				printf("\nSemestre da Disciplina Atualizado com Sucesso!");
+				printf("\n----------------------------------------------");
 				break;
 
 			case 4:
@@ -75,12 +86,14 @@ void updateSubject()
 				do
 				{
 					listTeachers();
-					printf("Digite a matricula do novo professor que vai ministrar a disciplina: ");
+					printf("\n >> Digite a Matricula do Novo Professor Que Vai Ministrar a Disciplina: ");
 					newTeacherId = validateInt();
 
 					if(newTeacherId == -1)
 					{
-						printf("Matricula do professor precisa ser um numero inteiro. Tente novamente.\n");
+						printf("\n--------------------------------------------------------------------------");
+						printf("\n[!] Matricula do Professor Precisa Ser um Numero Inteiro. Tente Novamente.");
+						printf("\n--------------------------------------------------------------------------");
 						continue;
 					}
 
@@ -115,12 +128,16 @@ void updateSubject()
 						}
 					}
 
-				 if(!newTeacherFinded) printf("Matricula do novo professor nao encontrada. Tente novamente.\n");
+				 if(!newTeacherFinded){
+					printf("\n----------------------------------------------------------------");
+					printf("\n[!] Matricula do Novo Professor Nao Encontrada. Tente Novamente.");
+					printf("\n----------------------------------------------------------------");
+				 }
 				} while (!newTeacherFinded);
 							
 			default:
-				printf("Opcao precisa ser um valor inteiro entre 0 e 4. Tente novamente.\n");
-				printf("Pressione Enter para continuar...\n"); 
+				printf("\n[!] Opcao Precisa Ser Um Valor Inteiro Entre 0 e 4. Tente Novamente.");
+				printf("\n >> Pressione Enter para continuar..."); 
 				getchar();
 				getchar();
 		}	

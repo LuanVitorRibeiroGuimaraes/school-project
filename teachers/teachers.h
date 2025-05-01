@@ -15,6 +15,9 @@ typedef struct
     char cargo[15];
     int assignedSubjects[MAX_SUBJECTS];
     int assignedSubjectsQnt;
+    int birthDay;
+    int birthMonth;
+    int birthYear;
 }Teacher;
 
 extern int teacherQnt; 

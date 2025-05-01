@@ -5,15 +5,14 @@ void listAllSubjects()
     int i, j, k, teacherFinded = 0;
     char subjectTeacher[100];
 
-    if(subjectQnt == 0) printf("Nenhuma disciplina encontrada.");
+    if(subjectQnt == 0) printf("\n[!] Nenhuma Disciplina Encontrada.");
 
     else
     {
         printf
         (
-            "------------------ LISTA DE DISCIPLINAS ------------------\n"
+            "\n------------------ LISTA DE DISCIPLINAS ------------------\n"
             "Codigo | Nome | Semestre | Professor\n"
-            "----------------------------------------------------------\n"
         );
     
         for(i = 0; i < subjectQnt; i++)
@@ -30,7 +29,7 @@ void listAllSubjects()
                 }
                 
             }
-            if (teacherFinded == 0) strcpy(subjectTeacher, "Sem Professor Cadastrado");
+            if (teacherFinded == 0) strcpy(subjectTeacher, "\n[!] Sem Professor Cadastrado");
             printf("%d | %s | %d | %s\n", subjects[i].subjectId, subjects[i].name, subjects[i].subjectSemester, subjectTeacher);
         }
     
@@ -45,18 +44,20 @@ void listSubject()
     int i, j, k, findId, pos, finded = 0, studentsFinded = 0;
     char subjectTeacher[100];
 
-    if(subjectQnt == 0) printf("Nenhuma disciplina encontrada.");
+    if(subjectQnt == 0) printf("\n[!] Nenhuma Disciplina Encontrada.");
 
     else
     {
         do
         {
-            printf("Digite o codigo da disciplina que deseja listar: ");
+            printf("\n >> Digite o Codigo da Disciplina Que Deseja Listar: ");
             findId = validateInt();
 
             if (findId == -1)
             {
-                printf("Codigo da disciplina precisa ser um numero inteiro. Tente novamente.\n");
+                printf("\n------------------------------------------------------------------------");
+                printf("\n[!] Codigo da Disciplina Precisa Ser um Numero Inteiro. Tente Novamente.");
+                printf("\n------------------------------------------------------------------------");
                 continue;
             }
 
@@ -67,7 +68,7 @@ void listSubject()
                     strcpy(subjectTeacher, teachers[i].name);
                 }
 
-                else strcpy(subjectTeacher, "Sem Professor Cadastrado");
+                else{} strcpy(subjectTeacher, "\n[!] Sem Professor Cadastrado");
             }
     
             for(i = 0; i < subjectQnt; i++)
@@ -81,9 +82,9 @@ void listSubject()
                 
             if(finded)
             {
-                printf("Disciplina: %s\tCodigo: %s\tSemestre: %d\tProf. %s", subjects[pos].name, subjects[pos].subjectId, subjects[pos].subjectSemester, subjectTeacher);
-                printf("---------------------------------------------------------------\n"); 
-                printf("Aluno | Matricula");                   
+                printf("\nDisciplina: %s\tCodigo: %s\tSemestre: %d\tProf. %s", subjects[pos].name, subjects[pos].subjectId, subjects[pos].subjectSemester, subjectTeacher);
+                printf("\n---------------------------------------------------------------"); 
+                printf("\nAluno | Matricula");                   
                 for (j = 0; j < studentQnt; j++)
                 {
                     for (k = 0; k < students[j].enrolledSubjectsQnt; k++)
@@ -96,11 +97,15 @@ void listSubject()
                     }
                     if(subjects[i].subjectEnrolledQnt == studentsFinded) break;
                 }
-                printf("---------------------------------------------------------------\n");
+                printf("\n---------------------------------------------------------------");
             }
             
     
-            if(!finded) printf("Codigo nao encontrado. Tente novamente.");
+            if(!finded){
+                printf("\n-------------------------------------------");
+                printf("\n[!] Codigo Nao Encontrado. Tente Novamente.");
+                printf("\n-------------------------------------------");
+            } 
         }while (!finded);
     }
     
@@ -122,9 +127,9 @@ void listUnderEnrolledStudents()
         }
     }
 
-    if(!studentFinded) printf("Nenhum aluno encontrado\n");
+    if(!studentFinded) printf("\n[!] Nenhum Aluno Encontrado");
 
-    printf("----------------------------------------------------------\n");
+    printf("\n----------------------------------------------------------");
 
     return;
 }
@@ -134,7 +139,7 @@ void listLargeSubjects()
     int i, j, k;
     char professor[100];
 
-    printf("------ LISTA DE DISCIPLINAS QUE EXTRAPOLAM 40 VAGAS ------\n");
+    printf("\n------ LISTA DE DISCIPLINAS QUE EXTRAPOLAM 40 VAGAS ------");
 
     for(i = 0;i < subjectQnt; i++)
     {
@@ -149,11 +154,11 @@ void listLargeSubjects()
                 
             }
             
-            printf("%d - %s - Professor: %s\n", subjects[i].subjectId, subjects[i].name, professor);
+            printf("\n%d - %s - Professor: %s", subjects[i].subjectId, subjects[i].name, professor);
         }
     }
 
-    printf("--------------------------------------------------- ------\n");
+    printf("\n----------------------------------------------------------");
 
     return;
 }

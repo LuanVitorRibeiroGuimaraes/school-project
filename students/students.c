@@ -8,9 +8,9 @@ void createStudent()
 
     if (studentQnt == SIZE_STUDENTS)
     {
-        printf("\n-------------------------------------");
-        printf("\nNao e possivel cadastrar mais alunos!");
-        printf("\n-------------------------------------");
+        printf("\n-----------------------------------------");
+        printf("\n[!] Nao e possivel cadastrar mais alunos!");
+        printf("\n-----------------------------------------");
         return;
     }
 
@@ -40,9 +40,10 @@ void createStudent()
             break;
         else
         {
-            printf("\n----------------------------------------------");
-            printf("\nData invalida! Tente novamente!");
-            printf("\n----------------------------------------------");
+            printf("\n-----------------------------------");
+            printf("\n[!] Data Invalida! Tente Novamente!");
+            printf("\n-----------------------------------");
+            continue;
         }
     }
 
@@ -56,9 +57,9 @@ void createStudent()
             break;
         else
         {
-            printf("\n------------------------------");
-            printf("\nCpf invalido! Tente novamente!");
-            printf("\n------------------------------");
+            printf("\n----------------------------------");
+            printf("\n[!] CPF Invalido! Tente Novamente!");
+            printf("\n----------------------------------");
         }
     }
 
@@ -70,9 +71,9 @@ void createStudent()
 
         if (sscanf(buffer, "%d", &studentId) != 1 || studentId <= 0)
         {
-            printf("\n----------------------------------------");
-            printf("\nDigite Somente Numeros Maiores Que Zero!");
-            printf("\n----------------------------------------");
+            printf("\n--------------------------------------------");
+            printf("\n[!] Digite Somente Numeros Maiores Que Zero!");
+            printf("\n--------------------------------------------");
             continue;
         }
 
@@ -106,9 +107,9 @@ void createStudent()
 
     studentQnt+= 1;
 
-    printf("\n---------------------------------");
-    printf("\nAluno cadastrado com sucesso!");
-    printf("\n---------------------------------");
+    printf("\n-----------------------------");
+    printf("\nAluno Cadastrado Com Sucesso!");
+    printf("\n-----------------------------");
     return;
 }
 

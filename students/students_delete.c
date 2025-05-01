@@ -5,9 +5,9 @@ void deleteStudentById()
 {
     if (studentQnt == 0)
     {
-        printf("\n--------------------------");
-        printf("\nNao ha alunos cadastrados!");
-        printf("\n--------------------------");
+        printf("\n------------------------------");
+        printf("\n[!] Nao ha Alunos Cadastrados!");
+        printf("\n------------------------------");
         return;
     }
 
@@ -67,9 +67,9 @@ void deleteStudentById()
     
     if (!found)
     {
-        printf("\n---------------------");
-        printf("\nAluno nao encontrado.");
-        printf("\n---------------------");
+        printf("\n-------------------------");
+        printf("\n[!] Aluno nao encontrado.");
+        printf("\n-------------------------");
     }
 }
 

@@ -23,7 +23,7 @@ void testFunctionsMenu()
         switch (menuOption)
         {
             case 0:
-                printf("Saindo...\n");
+                printf("\nSaindo...");
                 break;
 
             case 1:
@@ -63,7 +63,7 @@ void testFunctionsMenu()
                 break;
                 
             default:
-                printf("Opcao invalida!\n");
+                printf("\n[!] Opcao invalida!");
         }
     }
     while (menuOption != 0);

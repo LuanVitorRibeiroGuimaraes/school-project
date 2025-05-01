@@ -35,6 +35,7 @@ void subjectMainMenu()
 				break;
 			
 			default:
+				printf("\n--------------------------------------------------------------------");
 				printf("\n[!] Opcao Invalida. Apenas Numeros Inteiros Entre 0 e 3 Sao Aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
@@ -79,7 +80,8 @@ void subjectRegisterMenu()
 				break;
 	
 			default:
-				printf("\n[!] Opcao Precisa Ser um Valor Inteiro Entre 0 e 3. Tente Novamente.\n");
+				printf("\n--------------------------------------------------------------------");
+				printf("\n[!] Opcao Precisa Ser um Valor Inteiro Entre 0 e 3. Tente Novamente.");
 				printf("\nPressione Enter Para Continuar..."); 
 				getchar();
 				getchar();
@@ -99,7 +101,7 @@ void subjectEnrollmentMenu()
 			"0 - Voltar\n"
 			"1 - Matricular Estudante\n"
 			"2 - Desmatricular Estudante\n"
-			"------------------------------------------------------\n"
+			"--------------------------------------------------------\n"
 			"\n>> "
 		);
 		menuOption = validateInt();
@@ -118,6 +120,7 @@ void subjectEnrollmentMenu()
 				break;
 	
 			default:
+				printf("\n--------------------------------------------------------------------");
 				printf("\n[!] Opcao Invalida. Apenas numeros inteiros entre 0 e 2 sao aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();
@@ -167,6 +170,7 @@ void subjectListingMenu()
 				break;
 	
 			default:
+				printf("\n--------------------------------------------------------------------");
 				printf("\n[!] Opcao Invalida. Apenas Numeros Inteiros Entre 0 e 4 Sao Aceitos.");
 				printf("\nPressione Enter para continuar..."); 
 				getchar();

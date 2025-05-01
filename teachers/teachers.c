@@ -17,6 +17,7 @@ void createTeacher()
     char sex;
     int birthDate;
     char cpf[15];
+    int day, month, year;
     char cargo[] = "Professor(a)";
 
     if (teacherQnt == SIZE_PROFESSORES)
@@ -74,22 +75,43 @@ void createTeacher()
         break;
     }
 
-    printf("\n >> Digite a data de aiversario (DDMMAAAA): ");
-    fgets(buffer, sizeof(buffer), stdin);
-    sscanf(buffer, "%d", &birthDate);
-    //! VALIDAR DATA DE ANIVERSARIO
+    printf("\n >> Digite a data de aiversario do professor(a): ");
+    while (1)
+    {
+        printf("\n >> Dia (DD): ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%d", &day);
+
+        printf("\n >> Mes (MM): ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%d", &month);
+
+        printf("\n >> Ano (AAAA): ");
+        fgets(buffer, sizeof(buffer), stdin);
+        sscanf(buffer, "%d", &year);
+        if (validateData(day, month, year))
+            break;
+        else
+        {
+            printf("\n-----------------------------------");
+            printf("\n[!] Data invalida! Tente novamente!");
+            printf("\n-----------------------------------");
+            continue;
+        }
+    }
 
     while (1)
     {
         printf("\n >> Digite o CPF do professor (Somente Numeros): ");
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%s", &cpf);
-        if(validateCpf(cpf) == 0){
+        if (validateCpf(cpf) == 0)
+        {
             continue;
         }
-        break;   
+        break;
     }
-    
+
     teachers[teacherQnt].teacherId = teacherId;
     strcpy(teachers[teacherQnt].name, name);
     teachers[teacherQnt].sex = sex;
@@ -105,4 +127,3 @@ void createTeacher()
     return;
 }
 #pragma endregion
-

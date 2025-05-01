@@ -8,7 +8,7 @@ void studentMenu()
     {
         printf("\n----------------- MENU ALUNOS --------------------");
         printf("\nSelecione uma opcao abaixo:");
-        printf("\n0 - Fechar menu");
+        printf("\n0 - Encerrar Programa");
         printf("\n1 - Cadastrar Aluno");
         printf("\n2 - Buscar Alunos");
         printf("\n3 - Atualizar Aluno");
@@ -20,7 +20,7 @@ void studentMenu()
         switch(menuOption)
         {
             case 0:
-                printf("\nPrograma Encerrado!");
+                printf("\n[!] Programa Encerrado!");
                 return;
 
             case 1:
@@ -61,7 +61,9 @@ void studentMenu()
                             listStudentsByBirthDate();
                             break;
                         default:
-                            printf("\nOpcao invalida!\n");
+                            printf("\n-------------------");
+                            printf("\n[!] Opcao invalida!");
+                            printf("\n-------------------");
                             break;
                     }
                 }
@@ -70,7 +72,7 @@ void studentMenu()
             case 3:
                 {
                     int id;
-                    printf("\n>> Digite o id do aluno para atualizar:");
+                    printf("\n >> Digite o id do aluno para atualizar:");
                     printf("\n>> ");
                     scanf("%d", &id);
                     updateStudent(id);
@@ -80,7 +82,7 @@ void studentMenu()
             case 4:
                 {
                     int id;
-                    printf("\n>>Digite o id do aluno que deseja deletar:");
+                    printf("\n >> Digite o id do aluno que deseja deletar:");
                     printf("\n>> ");
                     scanf("%d", &id);
                     deleteStudentById(id);
@@ -88,11 +90,15 @@ void studentMenu()
                 break;
 
             case 5:
-                printf(">> Voltar para menu principal");
+                printf("\n-------------------------------");
+                printf("\n >> Voltar para menu principal.");
+                printf("\n-------------------------------");
                 return;
 
             default:
-                printf("\nOpcao invalida! Tente novamente.\n");
+                printf("\n------------------------------------");
+                printf("\n[!] Opcao invalida! Tente novamente.");
+                printf("\n------------------------------------");
                 break;
         }
 

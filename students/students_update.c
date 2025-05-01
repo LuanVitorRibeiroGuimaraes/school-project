@@ -1,5 +1,7 @@
 #include "students.h"
 
+char buffer[100];
+
 void updateStudent()
 {
     if (studentQnt == 0)
@@ -18,6 +20,8 @@ void updateStudent()
     int birthDate;
     bool found = false;
     bool currentStatus;
+    int day, month, year;
+
 
     printf("\n>> Digite a matricula do aluno que deseja atualizar: ");
     printf("\n>> ");
@@ -48,9 +52,27 @@ void updateStudent()
                 }
             }
 
-            printf("\n >> Digite a data de aniversario (DDMMAAAA): ");
-            printf("\n>> ");
-            scanf("%d", &birthDate);
+            printf("\n >> Digite a data de aniversario do aluno: ");
+            printf("\n >> Dia (DD): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%d", &day);
+
+            printf("\n >> Mes (MM): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%d", &month);
+
+            printf("\n >> Ano (AAAA): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%d", &year);
+            if (validateData(day, month, year))
+                break;
+            else
+            {
+                printf("\n-----------------------------------");
+                printf("\n[!] Data invalida! Tente novamente!");
+                printf("\n-----------------------------------");
+                continue;
+            }
 
             while (true)
             {
@@ -68,16 +90,20 @@ void updateStudent()
             printf("\nAluno atualizado com sucesso!");
             printf("\n-----------------------------");
 
+
+
             strcpy(students[i].name, name);
-            students[i].birthDate = birthDate;
+            students[i].birthDay = day;
+            students[i].birthMonth = month;
+            students[i].birthYear = year;
             break;
         }
     }
 
     if (!found)
         {
-            printf("\n----------------------------------------------------");
-            printf("\nAluno nao encontrado!");
-            printf("\n---------------------------------------------------");
+            printf("\n-------------------------");
+            printf("\n[!] Aluno nao encontrado!");
+            printf("\n-------------------------");
         }
 }

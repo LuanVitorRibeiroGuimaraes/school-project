@@ -10,7 +10,7 @@ void updateTeacher()
 {
 
     listTeachers();
-    printf("\nDigite a matricula do professor no qual voce quer alterar os dados:");
+    printf("\nDigite a Matricula Do Professor No Qual Voce Quer Alterar Os Dados:");
     printf("\n>> ");
     int lId;
     fgets(buffer, sizeof(buffer), stdin);
@@ -24,6 +24,7 @@ void updateTeacher()
             char lSex;
             int lBirthDate;
             char lCpf[15];
+            int day, month, year;
 
             while (1)
             {
@@ -52,13 +53,32 @@ void updateTeacher()
                 break;
             }
 
-            printf("\n >> Digite a nova data de aniversario (DDMMAAAA) do professor: ");
+            printf("\n >> Digite a nova data de aniversario do professor: ");
+            printf("\n >> Dia (DD): ");
             fgets(buffer, sizeof(buffer), stdin);
-            sscanf(buffer, "%d", &lBirthDate);
-            //! VALIDAR DATA DE ANIVERSARIO
+            sscanf(buffer, "%d", &day);
 
-            teachers[i].birthDate = lBirthDate;
+            printf("\n >> Mes (MM): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%d", &month);
 
+            printf("\n >> Ano (AAAA): ");
+            fgets(buffer, sizeof(buffer), stdin);
+            sscanf(buffer, "%d", &year);
+            if (validateData(day, month, year))
+                break;
+            else
+            {
+                printf("\n-----------------------------------");
+                printf("\n[!] Data invalida! Tente novamente!");
+                printf("\n-----------------------------------");
+                continue;
+            }
+
+            teachers[i].birthDay = day;
+            teachers[i].birthMonth = month;
+            teachers[i].birthYear = year;
+            
             while (1)
             {
                 printf("\n >> Digite o novo CPF do professor (Somente Numeros): ");

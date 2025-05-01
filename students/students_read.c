@@ -65,15 +65,15 @@ void listStudentsByLetter()
 {
     if (studentQnt == 0)
     {
-        printf("\n--------------------------");
-        printf("\nNao ha alunos cadastrados!");
-        printf("\n--------------------------");
+        printf("\n------------------------------");
+        printf("\n[!] Nao Ha Alunos Cadastrados!");
+        printf("\n------------------------------");
         return;
     }
     
     int qtn;
     printf("\n------------------------------");
-    printf("\nQuantas letras deseja filtrar?");
+    printf("\nQuantas Letras Deseja Filtrar?");
     printf("\n>> ");
     printf("\n------------------------------");
     scanf("%d", &qtn);
@@ -82,9 +82,9 @@ void listStudentsByLetter()
     char letter[qtn];
     
     for (int i = 0; i < qtn; i++) {
-        printf("\n-------------------");
-        printf("\nDigite a %do letra:", i + 1);
-        printf("\n-------------------");
+        printf("\n-----------------------");
+        printf("\n >> Digite a %do Letra:", i + 1);
+        printf("\n-----------------------");
         letter[i] = getchar();
         getchar();
         letter[i] = toupper(letter[i]);
@@ -110,9 +110,9 @@ void listStudentsByLetter()
     
     if (!found)
     {
-        printf("\n---------------------");
-        printf("\nAluno nao encontrado.");
-        printf("\n---------------------");
+        printf("\n-------------------------");
+        printf("\n[!] Aluno Nao Encontrado.");
+        printf("\n-------------------------");
     }
     
 }
@@ -121,9 +121,9 @@ void listStudentsBySex()
 {
     if (studentQnt == 0)
     {
-        printf("\n--------------------------");
-        printf("\nNao ha alunos cadastrados!");
-        printf("\n--------------------------");
+        printf("\n------------------------------");
+        printf("\n[!] Nao Ha Alunos Cadastrados!");
+        printf("\n------------------------------");
         return;
     }
 
@@ -133,7 +133,7 @@ void listStudentsBySex()
     while (true)
     {
         printf("\n--------------------------------------------------");
-        printf("\nDigite o sexo ('M' ou 'F') para filtrar os alunos:");
+        printf("\nDigite o Sexo ('M' ou 'F') Para Filtrar os Alunos:");
         printf("\n>> ");
         printf("\n--------------------------------------------------");
         sex = toupper(getchar());
@@ -159,9 +159,9 @@ void listStudentsBySex()
 
     if (!found)
     {
-        printf("\n---------------------");
-        printf("\nAluno nao encontrado.");
-        printf("\n---------------------");
+        printf("\n-------------------------");
+        printf("\n[!] Aluno Nao Encontrado.");
+        printf("\n-------------------------");
     }
 }
 
@@ -169,9 +169,9 @@ void listStudentsByBirthDate()
 {
     if (studentQnt == 0)
     {
-        printf("\n--------------------------");
-        printf("\nNao ha alunos cadastrados!");
-        printf("\n--------------------------\n");
+        printf("\n------------------------------");
+        printf("\n[!] Nao Ha Alunos Cadastrados!");
+        printf("\n------------------------------");
         return;
     }
 
@@ -181,16 +181,22 @@ void listStudentsByBirthDate()
     do
     {
         printf("\n----------------------------------");
-        printf("\nDigite a data de nascimento (dd mm aaaa): ");
-        printf("\n>> ");
-        scanf("%d %d %d", &day, &month, &year);
+        printf("\nDigite a Data de Nascimento: ");
+        printf("\n >> Dia (DD): ");
+        scanf("%d", &day);
+
+        printf("\n >> Mes (MM): ");
+        scanf("%d", &month);
+
+        printf("\n >> Ano (AAAA): ");
+        scanf("%d", &year);
         valid = validateData(day, month, year);
     } while (!valid);
 
     bool found = false;
 
     printf("\n---------------------------------------------");
-    printf("\nAlunos com data de nascimento %02d/%02d/%04d:", day, month, year);
+    printf("\nAlunos Com data De Nascimento %02d/%02d/%04d:", day, month, year);
     printf("\n---------------------------------------------");
 
     for (int i = 0; i < studentQnt; i++)
@@ -211,7 +217,9 @@ void listStudentsByBirthDate()
 
     if (!found)
     {
-        printf("\nNenhum aluno encontrado com essa data.");
+        printf("\n------------------------------------------");
+        printf("\n[!] Nenhum Aluno Encontrado Com Essa Data.");
+        printf("\n------------------------------------------");
     }
 
     printf("\n");
