@@ -209,7 +209,7 @@ void listStudentsByBirthDate()
         {
             printf("\nNome: %s", students[i].name);
             printf("\nMatricula: %d", students[i].studentId);
-            printf("\nSexo: %s", students[i].sex);
+            printf("\nSexo: %c", students[i].sex);
             printf("\n-----------------------------------------------");
             found = true;
         }
