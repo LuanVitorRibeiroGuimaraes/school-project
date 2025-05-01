@@ -31,5 +31,9 @@ void listAllSubjects(); //dados das disciplinas sem os alunos
 void listSubject(); // dados da disciplina e os alunos matriculados
 void listLargeSubjects(); // Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
 void listUnderEnrolledStudents(); // Lista de alunos matriculados em menos de 3 disciplinas
+void subjectMainMenu();
+void subjectRegisterMenu();
+void subjectEnrollmentMenu();
+void subjectListingMenu();
 
 #endif

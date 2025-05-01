@@ -1,4 +1,4 @@
-#include "../../validators/validators.h"
+#include "../validators.h"
 
 int validateTeacherId(int id)
 {

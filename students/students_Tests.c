@@ -69,7 +69,3 @@ void testFunctionsMenu()
     while (menuOption != 0);
 }
 
-int main()
-{
-    testFunctionsMenu();
-}

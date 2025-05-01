@@ -1,6 +1,6 @@
 #include "subject.h"
 
-deleteSubject()
+void deleteSubject()
 {
     int findSubjectId, i, j, k, pos;
     int subjectFinded = 0;

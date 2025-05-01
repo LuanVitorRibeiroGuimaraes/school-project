@@ -5,6 +5,9 @@ void teachersMenu()
 {
     while (1)
     {
+        int resposta;
+        char buffer[100];
+
         printf("\n----------------- MENU PROFESSORES ----------------\n");
         printf("1 - Adicionar Professor.\n");
         printf("2 - Atualizar Dados do Professor.\n");
@@ -17,9 +20,6 @@ void teachersMenu()
         printf("9 - Voltar Para o Menu Principal\n");
         printf("---------------------------------------------------\n");
 
-        int resposta;
-        char buffer[100];
-
         printf(">> ");
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%d", &resposta);
@@ -28,7 +28,7 @@ void teachersMenu()
         {
         default:
             printf("\n-------------------------------------");
-            printf("\n[!] Selecione uma das opcoes validas!");
+            printf("\n[!] Selecione Uma Das Opcoes Validas!");
             printf("\n-------------------------------------");
             break;
 
