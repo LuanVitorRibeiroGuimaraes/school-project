@@ -15,7 +15,7 @@ int validateCpf(char *cpf) //funcionando.
     if(len != 11)
     {
         printf("\n------------------------------------------");
-        printf("\n[!] CPF deve conter exatamente 11 dígitos.");
+        printf("\n[!] CPF deve conter exatamente 11 digitos.");
         printf("\n------------------------------------------");
         return 0;
     }

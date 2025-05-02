@@ -54,7 +54,7 @@ void updateTeacher()
             }
 
             printf("\n >> Digite a nova data de aniversario do professor: ");
-            printf("\n >> Dia (DD): ");
+            printf("\n\n >> Dia (DD): ");
             fgets(buffer, sizeof(buffer), stdin);
             sscanf(buffer, "%d", &day);
 
