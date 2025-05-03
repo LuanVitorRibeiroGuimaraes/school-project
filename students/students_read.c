@@ -72,12 +72,22 @@ void listStudentsByLetter()
     }
     
     int qtn;
-    printf("\n------------------------------");
-    printf("\nQuantas Letras Deseja Filtrar?");
+    printf("\n-----------------------------------------");
+    printf("\nQuantas Letras Deseja Filtrar? (Minimo 3)");
     printf("\n>> ");
-    printf("\n------------------------------");
+    printf("\n-----------------------------------------");
     scanf("%d", &qtn);
     getchar();
+
+    while (qtn < 3)
+    {
+        printf("\n-----------------------------------------");
+        printf("\nQuantidade incorreta! Digite 3 no mínimo!");
+        printf("\n>> ");
+        printf("\n-----------------------------------------");
+        scanf("%d", &qtn);
+        getchar();
+    }
     
     char letter[qtn];
     
