@@ -31,6 +31,7 @@ void listTeachersBySex(); // feito
 void listTeachersBybirthDate(); // feito FALTA VALIDAR 
 void excluirProfessor(); // feito
 void teachersMenu(); // feito
+void listTeacherByLetter(); // feito
 bool isEmpityTeacher(); // feito
 
 #endif
