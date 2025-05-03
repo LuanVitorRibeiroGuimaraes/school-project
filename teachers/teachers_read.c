@@ -177,4 +177,60 @@ void listTeachersBybirthDate()
         printf("\n[!] Nenhum Professor Com Essa Data de Aniversario.");
         printf("\n--------------------------------------------------");
     }
+    
+}
+
+void listTeacherByLetter()
+{
+    
+    int lQtn;
+    printf("\n----------------------------------");
+    printf("\n >> Quantas Letras Deseja Filtrar?");
+    printf("\n >> ");
+    fgets(buffer, sizeof(buffer), stdin);
+    sscanf(buffer, "%d", &lQtn);
+    
+    if(lQtn < 3){
+        
+        printf("\n----------------------------------");
+        printf("\n[!] Digite no Minimo 3 Caracteres.");
+        printf("\n----------------------------------");
+        return;
+    }
+
+    char letter[lQtn];
+    
+    for (int i = 0; i < lQtn; i++) {
+        printf("\n >> Digite a %do Letra: ", i + 1);
+        letter[i] = getchar();
+        getchar();
+        letter[i] = toupper(letter[i]);
+    }
+    
+    int found = 0;
+    char firstLetter;
+    
+    for (int i = 0; i < teacherQnt; i++) {
+
+        firstLetter = toupper(teachers[i].name[0]);
+
+        for (int j = 0; j < lQtn; j++) {
+            if (firstLetter == letter[j]) {
+                printf("\n----------------------------------------------------------------------");
+                printf("\nNome: %s \nMatricula: %d \nCPF: %s \nData de Nascimento: %d/%d/%d \nSexo: %c",
+                    teachers[i].name, teachers[i].teacherId, teachers[i].cpf, teachers[i].birthDay, teachers[i].birthMonth, teachers[i].birthYear, teachers[i].sex);
+                printf("\n----------------------------------------------------------------------");
+                found = 1;
+                break;
+            }
+        }
+    }
+    
+    if (!found)
+    {
+        printf("\n-----------------------------");
+        printf("\n[!] Professor Nao Encontrado.");
+        printf("\n-----------------------------");
+    }
+    
 }
