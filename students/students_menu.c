@@ -20,8 +20,7 @@ void studentMenu()
         switch (menuOption)
         {
         case 0:
-            printf("\n[!][!] Programa Encerrado!");
-            exit(0);
+            goto fim_menuAlunos;
 
         case 1:
             createStudent();
@@ -44,6 +43,7 @@ void studentMenu()
             switch (option)
             {
             case 0:
+                // Volta para o menu de alunos
                 break;
             case 1:
                 listStudents();
@@ -102,4 +102,8 @@ void studentMenu()
             break;
         }
     }
+
+fim_menuAlunos:
+    printf("\nPrograma encerrado.\n");
+    exit(0); 
 }
