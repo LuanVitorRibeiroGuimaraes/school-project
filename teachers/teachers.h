@@ -10,7 +10,6 @@ typedef struct
     int teacherId; 
     char name[100];
     char sex;
-    int birthDate;
     char cpf[15];
     char cargo[15];
     int assignedSubjects[MAX_SUBJECTS];

@@ -15,7 +15,6 @@ void createTeacher()
     int teacherId;
     char name[100];
     char sex;
-    int birthDate;
     char cpf[15];
     int day, month, year;
     char cargo[] = "Professor(a)";
@@ -78,7 +77,7 @@ void createTeacher()
     printf("\n >> Digite a data de aiversario do professor(a): ");
     while (1)
     {
-        printf("\n >> Dia (DD): ");
+        printf("\n\n >> Dia (DD): ");
         fgets(buffer, sizeof(buffer), stdin);
         sscanf(buffer, "%d", &day);
 
@@ -115,7 +114,9 @@ void createTeacher()
     teachers[teacherQnt].teacherId = teacherId;
     strcpy(teachers[teacherQnt].name, name);
     teachers[teacherQnt].sex = sex;
-    teachers[teacherQnt].birthDate = birthDate;
+    teachers[teacherQnt].birthDay = day;
+    teachers[teacherQnt].birthMonth = month;
+    teachers[teacherQnt].birthYear = year;
     strcpy(teachers[teacherQnt].cpf, cpf);
     strcpy(teachers[teacherQnt].cargo, cargo);
 

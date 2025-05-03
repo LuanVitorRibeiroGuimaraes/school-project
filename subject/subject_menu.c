@@ -1,18 +1,20 @@
 #include "subject.h"
+#include <stdlib.h>
 
 void subjectMainMenu()
 {
-	int menuOption;
-	
 	while(1)
 	{
+
+	int menuOption;
+	
 		printf(
-			"\n---------------- MENU DISCIPLINA ----------------\n"
-			"0 - Voltar\n"
-			"1 - Cadastrar Disciplina\n"
-			"2 - Matricular ou Desmatricular estudante em uma Disciplina\n"
-			"3 - Listar Disciplinas\n"
-			"-------------------------------------------------\n"
+			"\n---------------------- MENU DISCIPLINA --------------------"
+			"\n0 - Voltar\n"
+			"\n1 - Cadastrar Disciplina\n"
+			"\n2 - Matricular ou Desmatricular estudante em uma Disciplina\n"
+			"\n3 - Listar Disciplinas"
+			"\n-----------------------------------------------------------\n"
 			"\n>> "
 		);
 		menuOption = validateInt();
